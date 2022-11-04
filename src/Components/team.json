@@ -1,0 +1,42 @@
+[
+    {
+        "id":1,
+        "name":"Mamani Maximiliano Abel",
+        "age":"20 años",
+        "phrase":"Escuchar musica, caminar en lugares verdes y jugar jueguitos",
+        "src":"src/assets/TeamIMG/MaxiMamani.jpg",
+        "github":"https://github.com/MaxAbelMamani"
+    },
+    {
+        "id":2,
+        "name":"Ortega Matias Gabriel",
+        "age":"24 años",
+        "phrase":"Me gusta cocinar, hacer ejercicio y estudiar desarrollo Front-end",
+        "src":"src/assets/TeamIMG/MatiasOrtega.jpg",
+        "github":"https://github.com/MatiasGrrrOrtega"
+    },
+    {
+        "id":3,        
+        "name":"Bustamante Maximiliano L.",
+        "age":"23 años",
+        "phrase":"Me interesa el desarrollo web, programar juegos y editar videos",
+        "src":"src/assets/TeamIMG/MaxiBustamante.jpg",
+        "github":"https://github.com/MaxLeonel"
+    },
+    {
+        "id":4,
+        "name":"Morales Agustina M. A.",
+        "age":"23 años",
+        "phrase":"Tocar la guitarra, escuchar musica, sacarle fotos al cielo y perder el tiempo en internet",
+        "src":"src/assets/TeamIMG/AgusMorales.jpg",
+        "github":"https://github.com/Agmor03"
+    },
+    {
+        "id":5,
+        "name":"Cruz Aruzamen Matias A.",
+        "age":"19 años",
+        "phrase":"Me gustan los videojuegos, las peliculas, comics y editar imagenes y videos",
+        "src":"src/assets/TeamIMG/MatiasAruzamen.jpg",
+        "github":"https://github.com/MatiasCA11"
+    }
+]
