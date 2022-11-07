@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function moverCanvas() {
+        let divHijo = document.querySelector('canvas');
+        let divPadre = document.getElementById('gamedelamonachina');
+        divPadre.appendChild(divHijo);
+      }
+    </script>
     <title>Vite + React</title>
   </head>
-  <body>
+  <body onload="moverCanvas();">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

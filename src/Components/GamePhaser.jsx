@@ -41,8 +41,6 @@ export default function GamePhaser() {
         game.events.on("LISTO", setListo);
         return() => {
             setListo(false);
-            game.destroy(true);
-        }
+            game.destroy(true);        }
     },[listo]); 
-
 }
