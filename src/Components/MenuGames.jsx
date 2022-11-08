@@ -12,7 +12,7 @@ export default function MenuGames() {
                 <Link className='btn' to={"/PPT"}><span>Piedra, Papel y Tijera</span></Link>
                 <Link className='btn' to={"/Ahorcado"}><span>Ahorcado</span></Link>
                 <Link className='btn' to={"/Arkanoid"}><span>Arkanoid</span></Link>
-                <Link className='btn' to={"/GamePhaser"}><span>MonaChina</span></Link>
+                <Link className='btn' to={"/GamePhaser"}><span>AppleCatcher</span></Link>
                 <Link className='btn' to={"/PreguntaYRespuesta"}><span>Preguntas y Respuestas</span></Link>
             </div>
             <Link className='btn' to={"/"}><span>Inicio</span></Link>
