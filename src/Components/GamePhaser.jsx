@@ -1,6 +1,7 @@
 import React from 'react'
 import Phaser from "phaser";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 
 //Importando escenas
 import Level1 from "../Class/Level1.jsx";
@@ -42,5 +43,12 @@ export default function GamePhaser() {
         return() => {
             setListo(false);
             game.destroy(true);        }
-    },[listo]); 
+    },[listo]);
+    return(
+        <>
+            <h1 className='title'>Juego de la monachina de maxi</h1>
+            <Link className='btn' to={"/"}><span>Inicio</span></Link>
+            <Link className='btn' to={"/MenuGames"}><span>Menu Juegos</span></Link>
+        </>
+    ) 
 }
