@@ -46,7 +46,7 @@ export default function GamePhaser() {
     },[listo]);
     return(
         <>
-            <h1 className='title'>Juego de la monachina de maxi</h1>
+            <h1 className='title'>AppleCatcher</h1>
             <Link className='btn' to={"/"}><span>Inicio</span></Link>
             <Link className='btn' to={"/MenuGames"}><span>Menu Juegos</span></Link>
         </>
