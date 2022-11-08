@@ -19,7 +19,7 @@ export default function Team() {
                 })
                 }
             </div>
-            <Link className='btn' to={"/"}><span>Inicio</span></Link> 
+            <Link className='btn' to={"/"}><span>Volver a Inicio</span></Link> 
         </>
     )
 }

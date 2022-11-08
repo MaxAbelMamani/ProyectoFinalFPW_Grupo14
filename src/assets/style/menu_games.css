@@ -1,0 +1,11 @@
+.container__menu__games{
+    height: 100vh;
+}
+
+.menu__games{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
