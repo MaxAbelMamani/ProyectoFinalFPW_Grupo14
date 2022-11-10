@@ -10,7 +10,7 @@
     position: relative;
     width: 350px;
     height: 190px;
-    background: #333;
+    background: #1b1b1b;
     transition: 0.5s;
 }
 
@@ -50,7 +50,7 @@
     content: '';
     position: absolute;
     inset: 3px;
-    background: #292929;
+    background: #0a0a0a;
 }
 
 .card .imgBx{
@@ -96,7 +96,7 @@
     content: '';
     position: absolute;
     inset: 3px;
-    background: #292929;
+    background: #0a0a0a;
 }
 
 .card .imgBx img{
