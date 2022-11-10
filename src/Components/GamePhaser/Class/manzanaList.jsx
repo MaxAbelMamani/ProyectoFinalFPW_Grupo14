@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import manzanaRoja from "../assets/PhaserImg/ManzanaRoja.png";
-import manzanaVerde from "../assets/PhaserImg/ManzanaVerde.png";
-import manzanaMorada from "../assets/PhaserImg/ManzanaMorada.png";
+import manzanaRoja from "../PhaserImg/ManzanaRoja.png"
+import manzanaVerde from "../PhaserImg/ManzanaVerde.png";
+import manzanaMorada from "../PhaserImg/ManzanaMorada.png";
 
 export default class manzanaList {
     constructor(escena){
