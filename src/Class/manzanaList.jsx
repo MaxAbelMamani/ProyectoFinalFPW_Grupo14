@@ -9,7 +9,7 @@ export default class manzanaList {
     constructor(escena){
         this.escenaRelacionada = escena;
 
-        this.posY = 15;
+        this.posY = 200;
 
         this.posXmanzanaR = Phaser.Math.Between(20,780);
         this.posXmanzanaV = Phaser.Math.Between(20,780);
