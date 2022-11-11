@@ -31,7 +31,7 @@ body{
     display: inline-block;
     background: #fff;
     margin: 20px;
-    text-align: center;
+    
 }
 
 .btn::before,
@@ -82,3 +82,6 @@ body{
     background: rgba(255, 255, 255, 0.075);
     transform: skew(25deg);
 }
+ h1{
+    width: 100%;
+ }
