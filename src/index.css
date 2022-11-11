@@ -12,7 +12,8 @@ html{
 }
 
 body{
-    background: #030303;
+    /* background: #030303; */
+    background: #fff;
     text-align: center;
 }
 
@@ -85,4 +86,28 @@ body{
     height: 100%;
     background: rgba(255, 255, 255, 0.041);
     transform: skew(25deg);
+}
+
+.question-card{
+    margin: 0 auto;
+    background-color: gray;
+    padding: 16px;
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.option-list{
+    list-style: none;
+}
+
+.option-item{
+    background-color: darkgray;
+    padding: 16px;
+    border: 3px solid white;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-top: 8px;
+    cursor: pointer;
 }
