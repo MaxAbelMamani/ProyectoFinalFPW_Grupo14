@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import MenuGames from "./Components/MenuGames";
 import Team from "./Components/Team";
-//Importando paginas de juegos
-import PPT from "./Components/Games/PPT"
-import Ahorcado from "./Components/Games/Ahorcado"
-import Arkanoid from "./Components/Games/Arkanoid"
-import PreguntaYRespuesta from "./Components/Games/PreguntaYRespuesta"
-import GamePhaser from "./Components/GamePhaser"
+//Importando paginas de otros de juegos
+import PPT from "./Components/OtherGames/PPT"
+import Ahorcado from "./Components/OtherGames/Ahorcado"
+import Arkanoid from "./Components/OtherGames/Arkanoid"
+//Importando paginas de juegos principales a presentar
+import PreguntaYRespuesta from "./Components/GamePreguntaYRespuesta/PreguntaYRespuesta"
+import GamePhaser from "./Components/GamePhaser/GamePhaser"
 
 export default function App() {
   return (

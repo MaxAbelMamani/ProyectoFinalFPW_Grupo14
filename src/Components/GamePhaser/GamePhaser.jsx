@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
 //Importando escenas
-import Level1 from "../Class/Level1.jsx";
-import Level2 from "../Class/Level2.jsx";
-import Level3 from "../Class/Level3.jsx";
-import GameOver from "../Class/GameOver.jsx";
-import Win from "../Class/Win.jsx";
-import Start from "../Class/Start.jsx";
+import Level1 from "./Class/Level1.jsx";
+import Level2 from "./Class/Level2.jsx";
+import Level3 from "./Class/Level3.jsx";
+import GameOver from "./Class/GameOver.jsx";
+import Win from "./Class/Win.jsx";
+import Start from "./Class/Start.jsx";
 
 export default function GamePhaser() {
         const [listo, setListo] = useState(false);
