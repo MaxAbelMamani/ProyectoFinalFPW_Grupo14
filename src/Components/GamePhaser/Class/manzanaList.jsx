@@ -9,7 +9,7 @@ export default class manzanaList {
         this.escenaRelacionada = escena;
 
         //Variables de posicion y inicial para cada tipo de manzana
-        this.posY = 15;
+        this.posY = 200;
 
 
         //Variables de posicion x inicial de valor random para cada tipo de manzana
