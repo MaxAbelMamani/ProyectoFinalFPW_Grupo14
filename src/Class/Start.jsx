@@ -2,9 +2,9 @@
 import React from 'react';
 import Phaser from 'phaser';
 import Suelo from '../assets/PhaserImg/platformLevel1.png';
-import MonaChinaSprite from '../assets/PhaserImg/MonaChinaSprite.png';
 import FondoEscena1 from '../assets/PhaserImg/Escenario1.png';
 import manzanaList from './manzanaList';
+import Personaje from './Personaje';
 class Start extends Phaser.Scene {
     constructor() {
         super({ key: 'start' });
@@ -12,21 +12,19 @@ class Start extends Phaser.Scene {
 
     init() {
         this.listaDeManzanas = new manzanaList(this);
+        this.monaChina = new Personaje(this);
     }
 
     preload() {
         this.listaDeManzanas.preload();
+        this.monaChina.preload();
         this.load.image('Escena1', FondoEscena1);
         this.load.image('Suelo', Suelo);
-        this.load.spritesheet('MonaChinaSprite', MonaChinaSprite,
-            { frameWidth: 46, frameHeight: 47 }
-        )
     }
 
     create() {
 
         this.listaDeManzanas.generarManzanas();
-
 
         this.contadorManzanzaRojas = 0;
 
@@ -42,36 +40,9 @@ class Start extends Phaser.Scene {
 
         this.suelo.create(200, 600, 'Suelo').refreshBody();
 
-        this.monaChina = this.physics.add.sprite(180, 560, 'MonaChinaSprite');
+        this.monaChina.create();
 
-        this.monaChina.setBounce(0.2);
-
-
-        this.monaChina.setCollideWorldBounds(true);
-
-        this.anims.create({
-            key: 'left',
-            frames: this.anims.generateFrameNumbers('MonaChinaSprite', { start: 0, end: 3 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'turn',
-            frames: [{ key: 'MonaChinaSprite', frame: 4 }],
-            frameRate: 10
-        });
-
-        this.anims.create({
-            key: 'right',
-            frames: this.anims.generateFrameNumbers('MonaChinaSprite', { start: 4, end: 7 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.physics.add.collider(this.monaChina, this.suelo);
-
-        this.cursors = this.input.keyboard.createCursorKeys();
+        this.physics.add.collider(this.monaChina.monaChina, this.suelo);
 
         this.manzanaRoja = this.physics.add.group();
 
@@ -83,10 +54,13 @@ class Start extends Phaser.Scene {
         this.physics.add.overlap(this.monaChina,this.manzanaMorada,this.recojerManzanaM,null,this);
 
         this.scoreText = this.add.text(200, 5, 'Puntaje: 0', { fontSize: '32px', fill: '#000' });
+        this.cursors = this.input.keyboard.createCursorKeys();
 
     }
 
     update() {
+        this.monaChina.mover(this.cursors);
+
         if (this.listaDeManzanas.manzanaRoja.y > 300) {
             this.listaDeManzanas.crearManzanaRoja();
             this.listaDeManzanas.manzanaRoja.x = Phaser.Math.Between(20, 780);
@@ -107,23 +81,6 @@ class Start extends Phaser.Scene {
         if (this.listaDeManzanas.manzanaVerde.y > 600) {
             this.listaDeManzanas.manzanaVerde.disableBody(true, true);
         }
-
-        if (this.cursors.left.isDown) {
-            this.monaChina.setVelocityX(-160);
-
-            this.monaChina.anims.play('left', true);
-        }
-        else if (this.cursors.right.isDown) {
-            this.monaChina.setVelocityX(160);
-
-            this.monaChina.anims.play('right', true);
-        }
-        else {
-            this.monaChina.setVelocityX(0);
-
-            this.monaChina.anims.play('turn');
-        }
-
 
 
     }
