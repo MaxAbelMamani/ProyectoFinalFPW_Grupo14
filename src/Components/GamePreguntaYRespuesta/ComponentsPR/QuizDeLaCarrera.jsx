@@ -2,20 +2,28 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import Question from '../questions.json'
+import Question from '../QuizDeLaCarrera.json'
 
 function QuizDeLaCarrera() {
   const [showFinalResults, setFinalResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
+  function pintarOptionCorrect(color) {
+    const li = document.querySelector('.option-item');
+    li.classList.add(color);
+  }
+
   function optionClick(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
+      pintarOptionCorrect('green');
     }
 
     if (currentQuestion + 1 < Question.length) {
-      setCurrentQuestion(currentQuestion + 1);
+      setTimeout(()=>{
+        setCurrentQuestion(currentQuestion + 1);
+      },2000);
     }else{
       setFinalResults(true);
     }
@@ -46,7 +54,7 @@ function QuizDeLaCarrera() {
                 <ul className='option-list'>
                   {Question[currentQuestion].options.map((option) =>{
                     return(
-                      <li onClick={()=>optionClick(option.isCorrect)} key={option.id} className='option-item'>{option.text}</li>
+                      <li onClick={()=>optionClick(option.isCorrect)} key={option.id} className="option-item">{option.text}</li>
                     );
                   })}
                 </ul>
