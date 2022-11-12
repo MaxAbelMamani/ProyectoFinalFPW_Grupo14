@@ -12,15 +12,14 @@ html{
 }
 
 body{
-    /* background: #030303; */
-    background: #fff;
+    background: #333;
     text-align: center;
 }
 
 .title{
     text-align: center;
     color: #45f3ff;
-    background-color: #1b1b1b;
+    background-color: rgb(27, 27, 27);
     font-weight: 500;
     font-size: 3rem;
 }
@@ -30,13 +29,9 @@ body{
     width: 200px;
     height: 60px;
     display: inline-block;
-    background: rgb(214, 4, 4);
+    background: #fff;
     margin: 20px;
-    text-align: center;
-}
-
-.btn__menu__games{
-    width: 500px;
+    
 }
 
 .btn::before,
@@ -44,7 +39,7 @@ body{
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg ,#45f3ff, #0a0a0a, #0a0a0a, #ff3c7b);
+    background: linear-gradient(45deg ,#45f3ff, #333, #333, #ff3c7b);
     transition: 0.5s;
 }
 
@@ -64,7 +59,7 @@ body{
     width: 100%;
     height: 100%;
     display: inline-block;
-    background: #0a0a0a;
+    background: #333;
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -84,38 +79,9 @@ body{
     left: -50%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.041);
+    background: rgba(255, 255, 255, 0.075);
     transform: skew(25deg);
 }
-
-.question-card{
-    margin: 0 auto;
-    background-color: gray;
-    padding: 16px;
-    border-radius: 16px;
-    color: #fff;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-}
-
-.option-list{
-    list-style: none;
-}
-
-.option-item{
-    background-color: darkgray;
-    padding: 16px;
-    border: 3px solid white;
-    border-radius: 20px;
-    font-size: 20px;
-    margin-top: 8px;
-    cursor: pointer;
-}
-
-.green{
-    background-color: green;
-}
-
-.red{
-    background-color: red;
-}
+ h1{
+    width: 100%;
+ }
