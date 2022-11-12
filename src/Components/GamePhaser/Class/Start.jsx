@@ -1,12 +1,11 @@
 
-import sonido from '../PhaserSounds/MusicPhGame01.mp3'
+import BackgroundSound01 from '../PhaserSounds/MusicPhGame01.mp3'
 import React from 'react';
 import Phaser from 'phaser';
-import Suelo from '../PhaserImg/platformLevel1.png';
+import Suelo01 from '../PhaserImg/platformLevel1.png';
 import FondoEscena1 from '../PhaserImg/Escenario1.png';
 import Manzana from './manzana';
 import Personaje from './Personaje';
-import manzana from './manzana';
 class Start extends Phaser.Scene {
     constructor() {
         super({ key: 'start' });
@@ -18,45 +17,44 @@ class Start extends Phaser.Scene {
     init() {
         this.manzanas = new Manzana(this);
         this.monaChina = new Personaje(this);
-        this.manzanas = new Manzana(this);
+
     }
 
     preload() {
         this.monaChina.preload();
-        this.load.image('Escena1', FondoEscena1);
-        this.load.image('Suelo', Suelo);
-        this.load.audio('sound01', sonido);
+        this.load.image('BackGround01', FondoEscena1);
+        this.load.image('platform', Suelo01);
+        this.load.audio('sound01', BackgroundSound01);
         this.manzanas.preload();
     }
 
     create() {
 
-        this.sonido = this.sound.add('sound01');
+        this.sonidoFondo = this.sound.add('sound01');
         const soundConfig = {
             loop: true,
             volume: 0.1
         }
-        //this.sonido.play(soundConfig);
         if (!this.sound.locked) {
-            this.sonido.play(soundConfig)
+            this.sonidoFondo.play(soundConfig)
         }
         else {
             this.sound.once(Phaser.sound.Events.UNLOCKED, () => {
-                this.sonido.play(soundConfig)
+                this.sonidoFondo.play(soundConfig)
             })
         }
 
 
-        this.add.image(200, 300, 'Escena1');
+        this.add.image(200, 300, 'BackGround01');
 
 
-        this.suelo = this.physics.add.staticGroup();
+        this.platform = this.physics.add.staticGroup();
 
 
-        this.suelo.create(400, 600, 'Suelo').refreshBody();
+        this.platform.create(400, 600, 'platform').refreshBody();
 
 
-        this.suelo.create(200, 600, 'Suelo').refreshBody();
+        this.platform.create(200, 600, 'platform').refreshBody();
 
         this.lifetexto = this.add.text(10, 5, 'Vidas 3/' + this.vida, { fontSize: '20px', fill: '#000' }).setDepth(0.1);
         this.manzanas.crearManzanas();
@@ -85,11 +83,11 @@ class Start extends Phaser.Scene {
 
         if(this.vida == 0){
             this.mostrarGameOver();
-            this.sonido.stop();
+            this.sonidoFondo.stop();
         }
         if(this.score == 40){
             this.mostrarNivel2();
-            this.sonido.stop();
+            this.sonidoFondo.stop();
         }
     }
 

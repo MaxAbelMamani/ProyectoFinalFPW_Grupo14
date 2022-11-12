@@ -4,7 +4,7 @@ import Escena2 from '../PhaserImg/Escenario2.png';
 import Suelo2 from '../PhaserImg/platformLevel2.png';
 import Personaje from './Personaje';
 import Manzana from './manzana';
-import Sonido from '../PhaserSounds/MusicPhGame02.mp3'
+import BackgroundSound02 from '../PhaserSounds/MusicPhGame02.mp3'
 
 class Level2 extends Phaser.Scene {
     constructor(){
@@ -17,46 +17,44 @@ class Level2 extends Phaser.Scene {
     init(){
         this.manzanas = new Manzana(this);
         this.monaChina = new Personaje(this);
-        this.manzanas = new Manzana(this);
     }
 
     preload(){
-        this.load.image('Escena2', Escena2);
-        this.load.image('platform', Suelo2);
+        this.load.image('BackGround02', Escena2);
+        this.load.image('platform02', Suelo2);
         this.monaChina.preload();
         this.manzanas.preload();
-        this.load.audio('sound02', Sonido);
+        this.load.audio('sound02', BackgroundSound02);
     }
 
     create(){
 
-        this.Sonido = this.sound.add('sound02');
+        this.sonidoFondo = this.sound.add('sound02');
         const soundConfig = {
             loop: true,
             volume: 0.1
         }
-        //this.sonido.play(soundConfig);
         if (!this.sound.locked) {
-            this.Sonido.play(soundConfig)
+            this.sonidoFondo.play(soundConfig)
         }
         else {
             this.sound.once(Phaser.sound.Events.UNLOCKED, () => {
-                this.Sonido.play(soundConfig)
+                this.sonidoFondo.play(soundConfig)
             })
         }
 
 
 
-        this.add.image(200, 300, 'Escena2');
+        this.add.image(200, 300, 'BackGround02');
 
 
         this.suelo = this.physics.add.staticGroup();
 
 
-        this.suelo.create(400, 600, 'platform').refreshBody();
+        this.suelo.create(400, 600, 'platform02').refreshBody();
 
 
-        this.suelo.create(200, 600, 'platform').refreshBody();
+        this.suelo.create(200, 600, 'platform02').refreshBody();
 
         this.lifetexto = this.add.text(10, 5, 'Vidas 3/' + this.vida, { fontSize: '20px', fill: '#000' }).setDepth(0.1);
         this.manzanas.crearManzanas();
@@ -84,11 +82,11 @@ class Level2 extends Phaser.Scene {
 
         if(this.vida == 0){
             this.mostrarGameOver();
-            this.Sonido.stop();
+            this.sonidoFondo.stop();
         }
         if(this.score == 40){
             this.mostrarNivel2();
-            this.Sonido.stop();
+            this.sonidoFondo.stop();
         }
         
     }
