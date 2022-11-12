@@ -5,6 +5,9 @@ import Suelo2 from '../PhaserImg/platformLevel2.png';
 import Personaje from './Personaje';
 import Manzana from './manzana';
 import BackgroundSound02 from '../PhaserSounds/MusicPhGame02.mp3'
+import RedAppleSound from '../PhaserSounds/redApple.wav'
+import GreenAppleSound from '../PhaserSounds/greenApple.wav'
+import EvilAppleSound from '../PhaserSounds/evilApple.wav'
 
 class Level2 extends Phaser.Scene {
     constructor(){
@@ -25,14 +28,20 @@ class Level2 extends Phaser.Scene {
         this.monaChina.preload();
         this.manzanas.preload();
         this.load.audio('sound02', BackgroundSound02);
+        this.load.audio('redApple', RedAppleSound);
+        this.load.audio('greenApple', GreenAppleSound);
+        this.load.audio('evilApple', EvilAppleSound);
     }
 
     create(){
 
         this.sonidoFondo = this.sound.add('sound02');
+        this.redAppleSound = this.sound.add('redApple');
+        this.greenAppleSound = this.sound.add('greenApple');
+        this.evilAppleSound = this.sound.add('evilApple');
         const soundConfig = {
             loop: true,
-            volume: 0.1
+            volume: 0.2
         }
         if (!this.sound.locked) {
             this.sonidoFondo.play(soundConfig)
@@ -56,7 +65,7 @@ class Level2 extends Phaser.Scene {
 
         this.suelo.create(200, 600, 'platform02').refreshBody();
 
-        this.lifetexto = this.add.text(10, 5, 'Vidas 3/' + this.vida, { fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        this.lifetexto = this.add.text(10, 5, this.vida + '/3 Vidas', { fontSize: '20px', fill: '#000' }).setDepth(0.1);
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
@@ -105,6 +114,7 @@ class Level2 extends Phaser.Scene {
             manzanaRoja.setVisible(false);
             this.score += 10;
             this.scoreText.setText('Puntaje:' + this.score);
+            this.redAppleSound.play();
         }
     }
 
@@ -114,7 +124,8 @@ class Level2 extends Phaser.Scene {
             manzanaMorada.setActive(false);
             manzanaMorada.setVisible(false);
             this.vida--;
-            this.lifetexto.setText('Vidas 3/' + this.vida);
+            this.lifetexto.setText(this.vida + '/3 Vidas');
+            this.evilAppleSound.play();
         }
     }
     colisionPlayerManzanaV(monaChina, manzanaVerde) {
@@ -122,6 +133,7 @@ class Level2 extends Phaser.Scene {
             this.manzanas.manzanasVerdes.killAndHide(manzanaVerde);
             manzanaVerde.setActive(false);
             manzanaVerde.setVisible(false);
+            this.greenAppleSound.play();
             if(this.vida == 3)
             {
                 this.vida;
@@ -129,7 +141,7 @@ class Level2 extends Phaser.Scene {
             else{
                 this.vida++;
             }
-            this.lifetexto.setText('Vidas 3/' + this.vida);    
+            this.lifetexto.setText(this.vida + '/3 Vidas');    
         }
     }
     mostrarGameOver(){

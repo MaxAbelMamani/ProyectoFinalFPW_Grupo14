@@ -20,18 +20,7 @@ class GameOver extends Phaser.Scene {
     create(){
         
         this.gameOverS = this.sound.add('gameOverSound');
-        const soundConfig = {
-            loop: false,
-            volume: 0.1
-        }
-        if (!this.sound.locked) {
-            this.gameOverS.play(soundConfig)
-        }
-        else {
-            this.sound.once(Phaser.sound.Events.UNLOCKED, () => {
-                this.gameOverS.play(soundConfig)
-            })
-        }
+        this.gameOverS.play();
         this.add.image(200, 300, 'gameOverScene');
     }
 }

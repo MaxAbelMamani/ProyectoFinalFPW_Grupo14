@@ -1,5 +1,6 @@
 import React from 'react';
 import Phaser from 'phaser';
+import WinScene from '../PhaserImg/WinScene01.png'
 import GameWinSound from '../PhaserSounds/SoundYupi.mp3'
 
 class Win extends Phaser.Scene {
@@ -12,23 +13,14 @@ class Win extends Phaser.Scene {
     }
 
     preload(){
+        this.load.image('winScene', WinScene);
         this.load.audio('gameWinSound', GameWinSound);
     }
 
     create(){
         this.gameWinS = this.sound.add('gameWinSound');
-        const soundConfig = {
-            loop: false,
-            volume: 0.1
-        }
-        if (!this.sound.locked) {
-            this.gameWinS.play(soundConfig)
-        }
-        else {
-            this.sound.once(Phaser.sound.Events.UNLOCKED, () => {
-                this.gameWinS.play(soundConfig)
-            })
-        }
+        this.gameWinS.play();
+        this.add.image(200, 300, 'winScene');
     }
 }
 
