@@ -12,9 +12,9 @@ export default class Manzana {
         this.minManzanas = 1;
         this.maxManzanas = 3;
 
-        this.tiempoAparicion = 4000;
-        this.tiempoAparicionManzanaMorada = 4000;
-        this.tiempoAparicionManzanaVerde = 4000;
+        this.tiempoAparicion = 5000;
+        this.tiempoAparicionManzanaMorada = 3000;
+        this.tiempoAparicionManzanaVerde = 10000;
 
         this.velocidadCaida = 1;
         this.velocidadCaidaManzanaMorada = 1;
