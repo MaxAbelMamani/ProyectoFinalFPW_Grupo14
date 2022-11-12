@@ -3,98 +3,102 @@ import React from 'react';
 import Phaser from 'phaser';
 import Suelo from '../assets/PhaserImg/platformLevel1.png';
 import FondoEscena1 from '../assets/PhaserImg/Escenario1.png';
-import manzanaList from './manzanaList';
+import manzana from './manzana';
 import Personaje from './Personaje';
+import Manzana from './manzana';
+
 class Start extends Phaser.Scene {
     constructor() {
         super({ key: 'start' });
+        this.vida = 5;
+        this.score = 0;
+        this.texto;
     }
 
     init() {
-        this.listaDeManzanas = new manzanaList(this);
         this.monaChina = new Personaje(this);
+        this.manzanas = new Manzana(this);
     }
 
     preload() {
-        this.listaDeManzanas.preload();
         this.monaChina.preload();
         this.load.image('Escena1', FondoEscena1);
         this.load.image('Suelo', Suelo);
+        this.manzanas.preload();
     }
 
     create() {
 
-        this.listaDeManzanas.generarManzanas();
-
-        this.contadorManzanzaRojas = 0;
-
-
         this.add.image(200, 300, 'Escena1');
 
-
         this.suelo = this.physics.add.staticGroup();
-
-
         this.suelo.create(400, 600, 'Suelo').refreshBody();
-
-
         this.suelo.create(200, 600, 'Suelo').refreshBody();
 
-        this.monaChina.create();
+        this.lifetexto = this.add.text(10, 5, 'Vida: ' + this.vida, { fontSize: '32px', fill: '#000' }).setDepth(0.1);
 
+        this.manzanas.crearManzanas();
+
+        this.monaChina.create();
         this.physics.add.collider(this.monaChina.monaChina, this.suelo);
 
-        this.manzanaRoja = this.physics.add.group();
-
-
-        this.physics.add.overlap(this.monaChina, this.manzanaRoja, this.recojerManzanaR, null, this);
-
-        this.physics.add.overlap(this.monaChina,this.manzanaVerde,this.recojerManzanaV,null,this);
-
-        this.physics.add.overlap(this.monaChina,this.manzanaMorada,this.recojerManzanaM,null,this);
-
-        this.scoreText = this.add.text(200, 5, 'Puntaje: 0', { fontSize: '32px', fill: '#000' });
+        this.scoreText = this.add.text(150, 5, 'Puntaje: ' + this.score, { fontSize: '32px', fill: '#000' });
         this.cursors = this.input.keyboard.createCursorKeys();
 
+        //gestion de la colision entre la el personaje principal y las manzanas rojas
+        this.physics.add.overlap(this.monaChina.monaChina, this.manzanas.manzanasRojas, this.colisionPlayerManzanaR, null, this);
+        //gestion de la colision entre la el personaje principal y las manzanas moradas
+        this.physics.add.overlap(this.monaChina.monaChina, this.manzanas.manzanasMoradas, this.colisionPlayerManzanaM, null, this);
+        //gestion de la colision entre la el personaje principal y las manzanas verdes
+        this.physics.add.overlap(this.monaChina.monaChina, this.manzanas.manzanasVerdes, this.colisionPlayerManzanaV, null, this);
+
+        this.colisionManzanaRPlayer = false;
     }
 
     update() {
         this.monaChina.mover(this.cursors);
-
-        if (this.listaDeManzanas.manzanaRoja.y > 300) {
-            this.listaDeManzanas.crearManzanaRoja();
-            this.listaDeManzanas.manzanaRoja.x = Phaser.Math.Between(20, 780);
-            this.contadorManzanzaRojas += 1;
-        }
-
-        if (this.listaDeManzanas.manzanaMorada.y > 590) {
-            this.listaDeManzanas.manzanaMorada.disableBody(true, true);
-            this.listaDeManzanas.crearManzanaMorada();
-            this.listaDeManzanas.manzanaMorada.x = Phaser.Math.Between(20, 780);
-        }
-
-        if (this.contadorManzanzaRojas == 4) {
-            this.listaDeManzanas.crearManzanaVerde();
-            this.contadorManzanzaRojas = 0;
-        }
-
-        if (this.listaDeManzanas.manzanaVerde.y > 600) {
-            this.listaDeManzanas.manzanaVerde.disableBody(true, true);
-        }
-
-
-    }
-    recojerManzanaR(monaChina, manzanaRoja) {
-        manzanaRoja.disableBody(true, true);
-
-
-    }
-    recojerManzanaV(monaChina, manzanaVerde){
-        manzanaVerde.disableBody(true,true);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasRojas);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes);
     }
 
-    recojerManzanaM(monaChina,manzanaMorada){
-        manzanaMorada.disableBody(true,true);
+    destruirYResutilizarManzana(manzanas){
+        Phaser.Actions.IncY(manzanas.getChildren(), this.manzanas.velocidadCaida);
+        manzanas.children.iterate(function(manzana){
+            if (manzana.y > 600) {
+                manzanas.killAndHide(manzana);
+            }
+        });
+    }
+
+    colisionPlayerManzanaR(monaChina, manzanaRoja) {
+        if (manzanaRoja.active) {
+            this.manzanas.manzanasRojas.killAndHide(manzanaRoja);
+            manzanaRoja.setActive(false);
+            manzanaRoja.setVisible(false);
+            this.score+=10;
+            this.scoreText.setText('Puntaje: ' + this.score);
+        }
+    }
+
+    colisionPlayerManzanaM(monaChina, manzanaMorada) {
+        if (manzanaMorada.active) {
+            this.manzanas.manzanasMoradas.killAndHide(manzanaMorada);
+            manzanaMorada.setActive(false);
+            manzanaMorada.setVisible(false);  
+            this.vida--;
+            this.lifetexto.setText('Vida: ' + this.vida); 
+        }
+    }
+
+    colisionPlayerManzanaV(monaChina, manzanaVerde) {
+        if (manzanaVerde.active) {
+            this.manzanas.manzanasVerdes.killAndHide(manzanaVerde);
+            manzanaVerde.setActive(false);
+            manzanaVerde.setVisible(false);
+            this.vida++;
+            this.lifetexto.setText('Vida: ' + this.vida);    
+        }
     }
 }
 

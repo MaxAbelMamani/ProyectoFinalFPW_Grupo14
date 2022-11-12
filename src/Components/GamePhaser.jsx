@@ -32,8 +32,8 @@ export default function GamePhaser() {
                 physics: {
                     default: "arcade",
                     arcade: {
-                        gravity: {y: 100},
-                        debug:false
+                        gravity: {y: 0},
+                        debug:true
                     },
                 },
                 scene: iniciarEscena(),
