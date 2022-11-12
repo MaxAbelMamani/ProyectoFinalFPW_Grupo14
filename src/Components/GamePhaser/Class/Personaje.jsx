@@ -1,4 +1,4 @@
-import MonaChinaSprite from '../assets/PhaserImg/MonaChinaSprite.png';
+import MonaChinaSprite from '../PhaserImg/MonaChinaSprite.png';
 
 export default class Personaje{
     constructor(escena){
