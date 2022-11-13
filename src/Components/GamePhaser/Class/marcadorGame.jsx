@@ -6,8 +6,8 @@ class marcadorGame{
     }
 
     create(){
-        this.puntajeTextoS = this.escenaRelacionada.add.text(242, 7, 'Puntaje: 0/'+ this.puntajeMaximo, { fontFamily: 'fuenteLetra', fontSize: '20px', fill: '#000' }).setDepth(0.1);
-        this.puntajeTexto = this.escenaRelacionada.add.text(240, 5, 'Puntaje: 0/'+ this.puntajeMaximo, { fontFamily: 'fuenteLetra', fontSize: '20px'}).setDepth(0.1);
+        this.puntajeTextoS = this.escenaRelacionada.add.text(192, 7, 'Puntaje: 0/'+ this.puntajeMaximo, { fontFamily: 'fuenteLetra', fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        this.puntajeTexto = this.escenaRelacionada.add.text(190, 5, 'Puntaje: 0/'+ this.puntajeMaximo, { fontFamily: 'fuenteLetra', fontSize: '20px'}).setDepth(0.1);
     }
 
     incremenarPuntaje(puntos){

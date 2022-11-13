@@ -7,16 +7,16 @@ import manzanaRoja from "../PhaserImg/ManzanaRoja.png";
 
 
 export default class Manzana {
-    constructor(escena, speedAppleR, speedAppleM, speedAppleV){
+    constructor(escena, timeAppleR, timeAppleM, timeAppleV, speedAppleR, speedAppleM, speedAppleV){
         this.escenaRelacionada = escena;
 
-        this.tiempoAparicion = speedAppleR;
-        this.tiempoAparicionManzanaMorada = speedAppleM;
-        this.tiempoAparicionManzanaVerde = speedAppleV;
+        this.tiempoAparicion = timeAppleR;
+        this.tiempoAparicionManzanaMorada = timeAppleM;
+        this.tiempoAparicionManzanaVerde = timeAppleV;
 
-        this.velocidadCaida = 0.8;
-        this.velocidadCaidaManzanaMorada = 1.2;
-        this.velocidadCaidaManzanaVerde = 1.5;
+        this.velocidadCaida = speedAppleR;
+        this.velocidadCaidaManzanaMorada = speedAppleM;
+        this.velocidadCaidaManzanaVerde = speedAppleV;
 
         this.manzanasRojas;
         this.manzanasMoradas;
@@ -109,7 +109,7 @@ export default class Manzana {
     }
 
     generarManazasVerdes(manzanas){
-        this.numeroManzanasVerdes = Phaser.Math.Between(1,2);
+        this.numeroManzanasVerdes = Phaser.Math.Between(0,1);
         for (let index = 0; index <= this.numeroManzanasRojas; index++) {
             let manzana = manzanas.get();
 

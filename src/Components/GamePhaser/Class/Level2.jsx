@@ -17,7 +17,7 @@ class Level2 extends Phaser.Scene {
 
     init(){
         this.marcador = new marcadorGame(this, 400);
-        this.manzanas = new Manzana(this, 5000, 3000, 12000);
+        this.manzanas = new Manzana(this, 5000, 3000, 12000, 1.2, 1.5, 2);
         this.monaChina = new Personaje(this);
         this.vida = new vidasGame(this);
     }
@@ -82,11 +82,11 @@ class Level2 extends Phaser.Scene {
         this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas);
         this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes);
 
-        if(this.vida.vidas == 0){
+        if(this.vida.vidas <= 0){
             this.mostrarGameOver();
             this.sonidoFondo.stop();
         }
-        if(this.marcador.puntaje == 400){
+        if(this.marcador.puntaje >= 400){
             this.mostrarNivel2();
             this.sonidoFondo.stop();
         }
