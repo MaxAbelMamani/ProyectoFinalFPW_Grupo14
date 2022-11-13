@@ -26,7 +26,7 @@ class Level2 extends Phaser.Scene {
 
     preload(){
         this.load.image('BackGround02', Escena2);
-        this.load.image('platform02', Suelo2);
+        this.load.image('plataforma02', Suelo2);
         this.monaChina.preload();
         this.manzanas.preload();
         this.load.audio('sound02', BackgroundSound02);
@@ -64,10 +64,10 @@ class Level2 extends Phaser.Scene {
         this.suelo = this.physics.add.staticGroup();
 
 
-        this.suelo.create(400, 600, 'platform02').refreshBody();
+        this.suelo.create(400, 600, 'plataforma02').refreshBody();
 
 
-        this.suelo.create(200, 600, 'platform02').refreshBody();
+        this.suelo.create(200, 600, 'plataforma02').refreshBody();
 
 
         this.manzanas.crearManzanas();
