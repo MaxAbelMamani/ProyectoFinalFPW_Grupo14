@@ -7,18 +7,16 @@ import manzanaRoja from "../PhaserImg/ManzanaRoja.png";
 
 
 export default class Manzana {
-    constructor(escena){
+    constructor(escena, speedAppleR, speedAppleM, speedAppleV){
         this.escenaRelacionada = escena;
-        this.minManzanas = 1;
-        this.maxManzanas = 3;
 
-        this.tiempoAparicion = 5000;
-        this.tiempoAparicionManzanaMorada = 3000;
-        this.tiempoAparicionManzanaVerde = 10000;
+        this.tiempoAparicion = speedAppleR;
+        this.tiempoAparicionManzanaMorada = speedAppleM;
+        this.tiempoAparicionManzanaVerde = speedAppleV;
 
-        this.velocidadCaida = 1;
-        this.velocidadCaidaManzanaMorada = 1;
-        this.velocidadCaidaManzanaVerde = 1;
+        this.velocidadCaida = 0.8;
+        this.velocidadCaidaManzanaMorada = 1.2;
+        this.velocidadCaidaManzanaVerde = 1.5;
 
         this.manzanasRojas;
         this.manzanasMoradas;
@@ -55,7 +53,7 @@ export default class Manzana {
             delay: this.tiempoAparicion,
             loop: true,
             callback: ()=>{
-                this.generarManazas(this.manzanasRojas);
+                this.generarManazasRojas(this.manzanasRojas);
             }
         });
 
@@ -63,7 +61,7 @@ export default class Manzana {
             delay: this.tiempoAparicionManzanaMorada,
             loop: true,
             callback: ()=>{
-                this.generarManazas(this.manzanasMoradas);
+                this.generarManazasMoradas(this.manzanasMoradas);
             }
         });
 
@@ -71,22 +69,55 @@ export default class Manzana {
             delay: this.tiempoAparicionManzanaVerde,
             loop: true,
             callback: ()=>{
-                this.generarManazas(this.manzanasVerdes);
+                this.generarManazasVerdes(this.manzanasVerdes);
             }
         });
     }
 
-    generarManazas(manzanas){
-        this.numeroManzanas = Phaser.Math.Between(this.minManzanas, this.maxManzanas);
-
-        for (let i = 0; i < this.numeroManzanas; i++) {
+    generarManazasRojas(manzanas){
+        this.numeroManzanasRojas = Phaser.Math.Between(1,3);
+        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
             let manzana = manzanas.get();
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
                 //posicin de las manzanas
-                manzana.y = 200;
-                manzana.x = Phaser.Math.Between(0, 400);
+                manzana.y = 190;
+                manzana.x = Phaser.Math.Between(10, 390);
+                this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
+                    manzanaEnColision.x = Phaser.Math.Between(0, 400);
+                });
+            }
+        }
+    }
+
+    generarManazasMoradas(manzanas){
+        this.numeroManzanasMoradas = Phaser.Math.Between(1,3);
+        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
+            let manzana = manzanas.get();
+
+            if (manzana) {
+                manzana.setActive(true).setVisible(true);
+                //posicin de las manzanas
+                manzana.y = 290;
+                manzana.x = Phaser.Math.Between(10, 390);
+                this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
+                    manzanaEnColision.x = Phaser.Math.Between(0, 400);
+                });
+            }
+        }
+    }
+
+    generarManazasVerdes(manzanas){
+        this.numeroManzanasVerdes = Phaser.Math.Between(1,2);
+        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
+            let manzana = manzanas.get();
+
+            if (manzana) {
+                manzana.setActive(true).setVisible(true);
+                //posicin de las manzanas
+                manzana.y = 240;
+                manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
                     manzanaEnColision.x = Phaser.Math.Between(0, 400);
                 });

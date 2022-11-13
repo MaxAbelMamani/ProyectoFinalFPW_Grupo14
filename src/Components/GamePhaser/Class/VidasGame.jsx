@@ -19,7 +19,7 @@ class vidasGame{
             this.vidas
         }
         else{
-            this.vidas++;
+            this.vidas += vidas;
             this.vidaTextoS.setText(this.vidas + '/3 Vidas');
             this.vidaTexto.setText(this.vidas + '/3 Vidas');
         }

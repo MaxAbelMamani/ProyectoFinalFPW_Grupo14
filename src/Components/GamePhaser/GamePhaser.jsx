@@ -16,7 +16,6 @@ export default function GamePhaser() {
         useEffect(()=>{
             const configuracion = {
                 scale:{
-                
                     width: 400,
                     height: 600,
                 }
@@ -33,7 +32,7 @@ export default function GamePhaser() {
                     default: "arcade",
                     arcade: {
                         gravity: {y: 0},
-                        debug:true
+                        debug:false
                     },
                 },
                 scene: iniciarEscena(),

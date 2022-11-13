@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Arkanoid() {
   return (
     <div className='container__game'>
-        <h1 className='title'>Arkanoid</h1>
+        <header className='header'>
+          <h1 className='title__header'>Arkanoid</h1>
+        </header>
         <div className='game'>
           {/* <iframe src="#" frameBorder="0"></iframe> */}
         </div>

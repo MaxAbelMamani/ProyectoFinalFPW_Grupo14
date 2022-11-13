@@ -7,7 +7,6 @@ import SonidoInicial from '../PhaserSounds/winsquare.wav'
 class Start extends Phaser.Scene {
     constructor(){
         super({ key: 'start'});
-        this.nivel = 1;
     }
 
     init(){

@@ -1,4 +1,3 @@
-import React from 'react';
 import vidasGame from './VidasGame.jsx';
 import Phaser from 'phaser';
 import Escena2 from '../PhaserImg/Escenario2.png';
@@ -14,14 +13,11 @@ import marcadorGame from './marcadorGame.jsx';
 class Level2 extends Phaser.Scene {
     constructor(){
         super({ key: 'nivel2'});
-        //this.vida = 3;
-        //this.score = 0;
-        //this.texto;
     }
 
     init(){
-        this.marcador = new marcadorGame(this);
-        this.manzanas = new Manzana(this);
+        this.marcador = new marcadorGame(this, 400);
+        this.manzanas = new Manzana(this, 5000, 3000, 12000);
         this.monaChina = new Personaje(this);
         this.vida = new vidasGame(this);
     }
@@ -58,26 +54,17 @@ class Level2 extends Phaser.Scene {
             })
         }
 
-
-
         this.add.image(200, 300, 'BackGround02');
 
-
         this.suelo = this.physics.add.staticGroup();
-
-
         this.suelo.create(400, 600, 'platform02').refreshBody();
-
-
         this.suelo.create(200, 600, 'platform02').refreshBody();
 
-        //this.lifetexto = this.add.text(10, 5, this.vida + '/3 Vidas', { fontSize: '20px', fill: '#000' }).setDepth(0.1);
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
         this.physics.add.collider(this.monaChina.monaChina, this.platform);
 
-        //this.scoreText = this.add.text(270, 5, 'Puntaje:' + this.score, { fontSize: '20px', fill: '#000' });
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //gestion de la colision entre la el personaje principal y las manzanas rojas
@@ -99,7 +86,7 @@ class Level2 extends Phaser.Scene {
             this.mostrarGameOver();
             this.sonidoFondo.stop();
         }
-        if(this.marcador.puntaje == 40){
+        if(this.marcador.puntaje == 400){
             this.mostrarNivel2();
             this.sonidoFondo.stop();
         }
@@ -129,7 +116,6 @@ class Level2 extends Phaser.Scene {
             manzanaMorada.setActive(false);
             manzanaMorada.setVisible(false);
             this.vida.decrementarVida(1);
-            //this.lifetexto.setText(this.vida + '/3 Vidas');
             this.evilAppleSound.play();
         }
     }
@@ -140,7 +126,6 @@ class Level2 extends Phaser.Scene {
             manzanaVerde.setVisible(false);
             this.greenAppleSound.play();
             this.vida.aumentarVida(1);
-            //this.lifetexto.setText(this.vida + '/3 Vidas');    
         }
     }
     mostrarGameOver(){
