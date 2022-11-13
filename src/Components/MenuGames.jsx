@@ -29,7 +29,12 @@ export default function MenuGames() {
                     alt="example"
                 />
                 </Link>
-                <Link className='btn btn__menu__games' to={"/GamePhaser"}><span>AppleCatcher</span></Link>
+                <Link to={"/GamePhaser"}>
+                <img
+                    src="src/assets/img/applecatcher.png"
+                    alt="example"
+                />
+                </Link>
                 <Link to={"/PreguntaYRespuesta"}>
                 <img
                     src="src/assets/img/PyR.png"
