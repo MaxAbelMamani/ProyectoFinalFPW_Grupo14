@@ -1,3 +1,4 @@
+/*Zona de Importacion*/
 import vidasGame from './VidasGame.jsx';
 import BackgroundSound01 from '../PhaserSounds/MusicPhGame01.mp3'
 import RedAppleSound from '../PhaserSounds/redApple.wav'
@@ -24,12 +25,12 @@ class Level1 extends Phaser.Scene {
 
     preload() {
         this.monaChina.preload();
-        this.load.image('BackGround01', FondoEscena1);
-        this.load.image('platform', Suelo01);
-        this.load.audio('sound01', BackgroundSound01);
-        this.load.audio('redApple', RedAppleSound);
-        this.load.audio('greenApple', GreenAppleSound);
-        this.load.audio('evilApple', EvilAppleSound);
+        this.load.image('Fondo01', FondoEscena1);
+        this.load.image('plataforma', Suelo01);
+        this.load.audio('sonidoDeFondo', SonidoDeFondo);
+        this.load.audio('redApple', ManzanaRojaSonido);
+        this.load.audio('greenApple', ManzanaVerdeSonido);
+        this.load.audio('evilApple', ManzanaMoradaSonido);
         this.manzanas.preload();
     }
 
@@ -37,7 +38,7 @@ class Level1 extends Phaser.Scene {
         this.marcador.create();
         this.vida.create();
         
-        this.sonidoFondo = this.sound.add('sound01');
+        this.sonidoFondo = this.sound.add('sonidoDeFondo');
         this.redAppleSound = this.sound.add('redApple');
         this.greenAppleSound = this.sound.add('greenApple');
         this.evilAppleSound = this.sound.add('evilApple');
@@ -55,18 +56,15 @@ class Level1 extends Phaser.Scene {
         }
 
 
-        this.add.image(200, 300, 'BackGround01');
-
+        this.add.image(200, 300, 'Fondo01');
 
         this.platform = this.physics.add.staticGroup();
         this.platform.create(400, 600, 'platform').refreshBody();
         this.platform.create(200, 600, 'platform').refreshBody();
-
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
         this.physics.add.collider(this.monaChina.monaChina, this.suelo);
-
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //gestion de la colision entre la el personaje principal y las manzanas rojas

@@ -10,6 +10,7 @@ import GreenAppleSound from '../PhaserSounds/greenApple.wav'
 import EvilAppleSound from '../PhaserSounds/evilApple.wav'
 import marcadorGame from './marcadorGame.jsx';
 
+
 class Level2 extends Phaser.Scene {
     constructor(){
         super({ key: 'nivel2'});
@@ -116,6 +117,7 @@ class Level2 extends Phaser.Scene {
             manzanaMorada.setActive(false);
             manzanaMorada.setVisible(false);
             this.vida.decrementarVida(1);
+
             this.evilAppleSound.play();
         }
     }

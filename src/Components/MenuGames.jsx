@@ -11,11 +11,36 @@ export default function MenuGames() {
                 <h1 className='title__header'>¿Que quieres jugar hoy?</h1>
             </header>
             <div className='menu__games'>
-                <Link className='btn btn__menu__games' to={"/PPT"}><span>Piedra, Papel y Tijera</span></Link>
-                <Link className='btn btn__menu__games' to={"/Ahorcado"}><span>Ahorcado</span></Link>
-                <Link className='btn btn__menu__games' to={"/Arkanoid"}><span>Arkanoid</span></Link>
-                <Link className='btn btn__menu__games' to={"/GamePhaser"}><span>AppleCatcher</span></Link>
-                <Link className='btn btn__menu__games' to={"/PreguntaYRespuesta"}><span>Preguntas y Respuestas</span></Link>
+                <Link to={"/PPT"}>
+                <img
+                    src="src/assets/img/ppt.png"
+                    alt="example"
+                />
+                </Link>
+                <Link to={"/Ahorcado"}>
+                <img
+                    src="src/assets/img/Ahorcado.png"
+                    alt="example"
+                />
+                </Link>
+                <Link to={"/Arkanoid"}>
+                <img
+                    src="src/assets/img/Arkanoid.png"
+                    alt="example"
+                />
+                </Link>
+                <Link to={"/GamePhaser"}>
+                <img
+                    src="src/assets/img/applecatcher.png"
+                    alt="example"
+                />
+                </Link>
+                <Link to={"/PreguntaYRespuesta"}>
+                <img
+                    src="src/assets/img/PyR.png"
+                    alt="example"
+                />
+                </Link>
             </div>
             <Link className='btn' to={"/"}><span>Inicio</span></Link>
         </div>
