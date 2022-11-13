@@ -16,12 +16,13 @@ export default function GamePhaser() {
         useEffect(()=>{
             const configuracion = {
                 scale:{
-                    width: 800,
-                    height:600
+                
+                    width: 400,
+                    height: 600,
                 }
             }
 
-            const escenas = [Start ,Level1, Level2, Level3, GameOver, Win];
+            const escenas = [Start,Level1, Level2,Level3,GameOver,Win];
             const crearEscena = Scene =>new Scene(configuracion);
             const iniciarEscena = () => escenas.map(crearEscena);
 
@@ -32,7 +33,7 @@ export default function GamePhaser() {
                     default: "arcade",
                     arcade: {
                         gravity: {y: 0},
-                        debug:false
+                        debug:true
                     },
                 },
                 scene: iniciarEscena(),
