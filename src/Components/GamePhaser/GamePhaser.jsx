@@ -46,7 +46,9 @@ export default function GamePhaser() {
         },[listo]);
     return(
         <>
-            <h1 className='title'>AppleCatcher</h1>
+            <header className='header'>
+                <h1 className='title__header'>AppleCatcher</h1>
+            </header>
             <div id='game' className='game'>
 
             </div>

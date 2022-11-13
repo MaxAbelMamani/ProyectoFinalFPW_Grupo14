@@ -9,7 +9,9 @@ import Developer from './Developer';
 export default function Team() {
     return (
         <>
-            <h1 className='title'>Boquita el mas grande Papa</h1>
+            <header className='header'>
+                <h1 className='title__header'>Equipo de Trabajo</h1>
+            </header>
             <div className='team'>
                 {
                 teamJS.map((e) => {
