@@ -34,10 +34,10 @@
     width: 600px;
     height: 120px;
     background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
-    animation: animate 4s linear infinite;
+    animation: lineaCeleste 4s linear infinite;
 }
 
-@keyframes animate{
+@keyframes lineaCeleste{
     0%{
         transform: translate(-50%, -50%) rotate(0deg);
     }
@@ -80,10 +80,10 @@
     height: 150px;
     transform: translate(-50%, -50%);
     background: linear-gradient(transparent, #ff3c7b, #ff3c7b, #ff3c7b, transparent);
-    animation: animate2 6s linear infinite;
+    animation: lineaRosa 6s linear infinite;
 }
 
-@keyframes animate2{
+@keyframes lineaRosa{
     0%{
         transform: translate(-50%, -50%) rotate(360deg);
     }

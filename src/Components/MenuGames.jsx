@@ -7,7 +7,9 @@ import '../assets/style/menu_games.css'
 export default function MenuGames() {
     return (
         <div className='container__menu__games'>
-            <h1 className='title'>¿Que quieres jugar?</h1>
+            <header className='header'>
+                <h1 className='title__header'>¿Que quieres jugar hoy?</h1>
+            </header>
             <div className='menu__games'>
                 <Link className='btn btn__menu__games' to={"/PPT"}><span>Piedra, Papel y Tijera</span></Link>
                 <Link className='btn btn__menu__games' to={"/Ahorcado"}><span>Ahorcado</span></Link>

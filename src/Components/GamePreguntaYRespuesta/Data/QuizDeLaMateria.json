@@ -1,0 +1,86 @@
+[
+  {
+    "titulo": "¿Cuál es el mejor lenguaje de programación?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "JavaScript", 
+        "isCorrect": true 
+      },
+      { "id": 1,
+        "textoRespuesta": "PHP", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "C++", 
+        "isCorrect": false 
+      },
+      { "id": 3,
+        "textoRespuesta": "Kotlin", 
+        "isCorrect": false 
+      }
+    ]
+  },
+  {
+    "titulo": "Con las Clases virtuales aprendes...?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "no entiendo ", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "si entiendo ", 
+        "isCorrect": true 
+      },
+      { "id": 2,
+        "textoRespuesta": "sin gracia :v", 
+        "isCorrect": false 
+      },
+      { "id": 3,
+        "textoRespuesta": "sin código", 
+        "isCorrect": false 
+      }
+    ]
+  },
+  {
+    "titulo": "¿Cuánto es `11`+ 1 en JavaScript?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "111", 
+        "isCorrect": true 
+      },
+      { "id": 1,
+        "textoRespuesta": "12", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "Syntax Error", 
+        "isCorrect": false 
+      },
+      { "id": 3,
+        "textoRespuesta": "`11`1", 
+        "isCorrect": false 
+      }
+    ]
+  },
+  {
+    "titulo": "¿En qué año fue creado JavaScript?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "1997", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "2001", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "1987", 
+        "isCorrect": false 
+      },
+      { "id": 3,
+        "textoRespuesta": "1995", 
+        "isCorrect": true 
+      }
+    ]
+  }
+]

@@ -1,169 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import preguntas from "./preguntas";
-import { useState, useEffect } from "react";
 
-import '../GamePreguntaYRespuesta/GamePreguntaYRespuesta.css'
+import './PreguntaYRespuesta.css'
 
 export default function PreguntaYRespuesta() {
-
-  const [preguntaActual, setPreguntaActual] = useState(0);
-  const [puntuación, setPuntuación] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
-  const [tiempoRestante, setTiempoRestante] = useState(10);
-  const [areDisabled, setAreDisabled] = useState(false);
-  const [answersShown, setAnswersShown] = useState(false);
-
-  function handleAnswerSubmit(isCorrect, e) {
-    // añadir puntuación
-    if (isCorrect) setPuntuación(puntuación + 1);
-    // añadir estilos de pregunta
-    e.target.classList.add(isCorrect ? "correct" : "incorrect");
-    // cambiar a la siguiente pregunta
-
-    setTimeout(() => {
-      if (preguntaActual === preguntas.length - 1) {
-        setIsFinished(true);
-      } else {
-        setPreguntaActual(preguntaActual + 1);
-        setTiempoRestante(10);
-      }
-    }, 1500);
-  }
-
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      if (tiempoRestante > 0) setTiempoRestante((prev) => prev - 1);
-      if (tiempoRestante === 0) setAreDisabled(true);
-    }, 1000);
-
-    return () => clearInterval(intervalo);
-  }, [tiempoRestante]);
-
-  if (isFinished)
-    return (
-      <div className='container__game'>
-        <h1 className='title'>PreguntaYRespuesta</h1>
-        <div>
-        <Link className='btn' to={"/"}><span>Inicio</span></Link>
-        <Link className='btn' to={"/MenuGames"}><span>Menu Juegos</span></Link>
-        </div>
-      <main className="PreguntaYRespuesta">
-        <div className="juego-terminado">
-          <span>
-            {" "}
-            Obtuviste {puntuación} de {preguntas.length}{" "}
-          </span>
-          <button onClick={() => (window.location.href = "PreguntaYRespuesta")}>
-            {" "}
-            Volver a jugar
-          </button>
-          <button
-            onClick={() => {
-              setIsFinished(false);
-              setAnswersShown(true);
-              setPreguntaActual(0);
-            }}
-          >
-            Ver respuestas
-          </button>
-        </div>
-      </main>
-      </div>
-    );
-
-    if (answersShown)
-    return (
-      <div className='container__game'>
-        <h1 className='title'>PreguntaYRespuesta</h1>
-        <div>
-        <Link className='btn' to={"/"}><span>Inicio</span></Link>
-        <Link className='btn' to={"/MenuGames"}><span>Menu Juegos</span></Link>
-        </div>
-      <main className="PreguntaYRespuesta">
-        <div className="lado-izquierdo">
-          <div className="numero-pregunta">
-            <span> Pregunta {preguntaActual + 1} de</span> {preguntas.length}
-          </div>
-          <div className="titulo-pregunta">
-            {preguntas[preguntaActual].titulo}
-          </div>
-          <div>
-            {
-              preguntas[preguntaActual].opciones.filter(
-                (opcion) => opcion.isCorrect
-              )[0].textoRespuesta
-            }
-          </div>
-          <button
-            onClick={() => {
-              if (preguntaActual === preguntas.length - 1) {
-                window.location.href = "/";
-              } else {
-                setPreguntaActual(preguntaActual + 1);
-              }
-            }}
-          >
-            {preguntaActual === preguntas.length - 1
-              ? "Volver a jugar"
-              : "Siguiente"}
-          </button>
-        </div>
-      </main>
-      </div>
-    );
-
   return (
-    <div className='container__game'>
-        <h1 className='title'>PreguntaYRespuesta</h1>
-        <div>
+    <div className='container__quiz'>
+      <header className='header'>
+        <h1 className='title__header'>Preguntas y Respuestas</h1>
+      </header>
+      <div className='quiz__menu'>
+        <h3 className='quiz__menu__title'>Eligue un Tema</h3>
+        <Link className='quiz__option option1' to={"/Quiz1"}><span>HTML</span></Link>
+        <Link className='quiz__option option2' to={"/Quiz2"}><span>JavaScript</span></Link>
+        <Link className='quiz__option option3' to={"/Quiz3"}><span>CSS</span></Link>
+        <Link className='quiz__option option4' to={"/Quiz4"}><span>F.P.W</span></Link>
+      </div>
+      <div className='botones'>
+        <Link className='btn' to={"/MenuGames"}><span>Juegos</span></Link> 
         <Link className='btn' to={"/"}><span>Inicio</span></Link>
-        <Link className='btn' to={"/MenuGames"}><span>Menu Juegos</span></Link>
-        </div>
-        
-        <main className="PreguntaYRespuesta">
-      <div className="lado-izquierdo">
-        <div className="numero-pregunta">
-          <span> Pregunta {preguntaActual + 1} de</span> {preguntas.length}
-        </div>
-        <div className="titulo-pregunta">
-          {preguntas[preguntaActual].titulo}
-        </div>
-        <div>
-          {!areDisabled ? (
-            <span className="tiempo-restante">
-              Tiempo restante: {tiempoRestante}{" "}
-            </span>
-          ) : (
-            <button
-              onClick={() => {
-                setTiempoRestante(10);
-                setAreDisabled(false);
-                if (preguntaActual === preguntas.length - 1) {
-                  setIsFinished(true);
-                } else {
-                  setPreguntaActual(preguntaActual + 1);
-                }
-              }}
-            >
-              Continuar
-            </button>
-          )}
-        </div>
       </div>
-      <div className="lado-derecho">
-        {preguntas[preguntaActual].opciones.map((respuesta) => (
-          <button
-            disabled={areDisabled}
-            key={respuesta.textoRespuesta}
-            onClick={(e) => handleAnswerSubmit(respuesta.isCorrect, e)}
-          >
-            {respuesta.textoRespuesta}
-          </button>
-        ))}
-      </div>
-    </main>
-   
     </div>
   )
 }
+

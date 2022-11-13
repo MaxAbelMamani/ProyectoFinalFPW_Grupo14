@@ -1,0 +1,116 @@
+    [
+        {
+            "titulo": "¿HTML se usa para crear paginas web?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Si", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "No", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "El codigo HTML se usar para",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "trabajar con base de datos", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "estructura de contenido de una pagina web", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "dibujar", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cual de las siguientes es la etiqueta de parrafo valida?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "<p>", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "[p]", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "(p)", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "{p}", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cual es la extension correcta para archivos HTML?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": ".css", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": ".txt", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": ".exe", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": ".html", 
+                    "isCorrect": true 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cuál es la versión actualmente vigente del estándar HTML?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "HTML 5", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "HTML 4v", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "HTML 3", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "HTML 6", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cuál de estas etiquetas ayudaría a que los acentos se vieran bien en una página web?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "<language=es>", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "<meta charset=UTF-8", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "<meta ASCII=yes>", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "<accentuation=on>", 
+                    "isCorrect": false 
+                }
+            ]
+        }
+    ]
