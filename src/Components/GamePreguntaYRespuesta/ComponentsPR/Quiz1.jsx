@@ -2,8 +2,6 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
-import { sonidoEleccionCorrecta, sonidoEleccionIncorrecta, sonidoDeFondo, restartBtn} from '../PregRespSounds/soundEffects';
-
 import Quiz from '../Data/QuizHTML.json'
 import '../PregRespStyles/Quiz.css'
 
