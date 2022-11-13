@@ -1,4 +1,4 @@
-
+import vidasGame from './VidasGame.jsx';
 import BackgroundSound01 from '../PhaserSounds/MusicPhGame01.mp3'
 import RedAppleSound from '../PhaserSounds/redApple.wav'
 import GreenAppleSound from '../PhaserSounds/greenApple.wav'
@@ -9,17 +9,20 @@ import Suelo01 from '../PhaserImg/platformLevel1.png';
 import FondoEscena1 from '../PhaserImg/Escenario1.png';
 import Manzana from './manzana';
 import Personaje from './Personaje';
+import marcadorGame from './marcadorGame.jsx';
 class Start extends Phaser.Scene {
     constructor() {
         super({ key: 'start' });
-        this.vida = 3;
-        this.score = 0;
-        this.texto;
+        //this.vida = 3;
+        //this.score = 0;
+        //this.texto;
     }
 
     init() {
+        this.marcador = new marcadorGame(this);
         this.manzanas = new Manzana(this);
         this.monaChina = new Personaje(this);
+        this.vida = new vidasGame(this);
 
     }
 
@@ -35,7 +38,9 @@ class Start extends Phaser.Scene {
     }
 
     create() {
-
+        this.marcador.create();
+        this.vida.create();
+        
         this.sonidoFondo = this.sound.add('sound01');
         this.redAppleSound = this.sound.add('redApple');
         this.greenAppleSound = this.sound.add('greenApple');
@@ -65,13 +70,13 @@ class Start extends Phaser.Scene {
 
         this.platform.create(200, 600, 'platform').refreshBody();
 
-        this.lifetexto = this.add.text(10, 5, this.vida + '/3 Vidas', { fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        //this.lifetexto = this.add.text(10, 5, this.vida + '/3 Vidas', { fontSize: '20px', fill: '#000' }).setDepth(0.1);
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
         this.physics.add.collider(this.monaChina.monaChina, this.suelo);
 
-        this.scoreText = this.add.text(270, 5, 'Puntaje:' + this.score, { fontSize: '20px', fill: '#000' });
+        //this.scoreText = this.add.text(270, 5, 'Puntaje:' + this.score, { fontSize: '20px', fill: '#000' });
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //gestion de la colision entre la el personaje principal y las manzanas rojas
@@ -90,11 +95,11 @@ class Start extends Phaser.Scene {
         this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas);
         this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes);
 
-        if(this.vida == 0){
+        if(this.vida.vidas == 0){
             this.mostrarGameOver();
             this.sonidoFondo.stop();
         }
-        if(this.score == 40){
+        if(this.marcador.puntaje == 40){
             this.mostrarNivel2();
             this.sonidoFondo.stop();
         }
@@ -113,8 +118,7 @@ class Start extends Phaser.Scene {
             this.manzanas.manzanasRojas.killAndHide(manzanaRoja);
             manzanaRoja.setActive(false);
             manzanaRoja.setVisible(false);
-            this.score += 10;
-            this.scoreText.setText('Puntaje:' + this.score);
+            this.marcador.incremenarPuntaje(10);
             this.redAppleSound.play();
         }
     }
@@ -124,8 +128,8 @@ class Start extends Phaser.Scene {
             this.manzanas.manzanasMoradas.killAndHide(manzanaMorada);
             manzanaMorada.setActive(false);
             manzanaMorada.setVisible(false);
-            this.vida--;
-            this.lifetexto.setText(this.vida + '/3 Vidas');
+            this.vida.decrementarVida(1);
+            //this.lifetexto.setText(this.vida + '/3 Vidas');
             this.evilAppleSound.play();
         }
     }
@@ -135,14 +139,8 @@ class Start extends Phaser.Scene {
             manzanaVerde.setActive(false);
             manzanaVerde.setVisible(false);
             this.greenAppleSound.play();
-            if(this.vida == 3)
-            {
-                this.vida;
-            }
-            else{
-                this.vida++;
-            }
-            this.lifetexto.setText(this.vida + '/3 Vidas');    
+            this.vida.aumentarVida(1);
+            //this.lifetexto.setText(this.vida + '/3 Vidas');    
         }
     }
     mostrarGameOver(){
