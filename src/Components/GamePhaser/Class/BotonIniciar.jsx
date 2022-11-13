@@ -10,11 +10,11 @@ class BotonIniciar {
     }
 
     create(){
-        this.botonIniciar = this.escenaRelacionada.add.image(350, 400, 'botonIniciar').setInteractive();
+        this.botonIniciar = this.escenaRelacionada.add.image(200, 350, 'botonIniciar').setInteractive();
         this.botonIniciar.on('pointerdown', ()=>{
-            this.escenaRelacionada.scene.start('nivel1');
+            this.escenaRelacionada.scene.start('level1');
         });
-        this.botonIniciar.setScale(0.7);
+        this.botonIniciar.setScale(1);
     }
 }
 

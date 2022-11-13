@@ -13,7 +13,7 @@ class BotonReiniciar {
         this.botonReiniciar = this.escenaRelacionada.add.image(200, 550, 'botonReiniciar').setInteractive();
         this.botonReiniciar.setScale(1);
         this.botonReiniciar.on('pointerdown', ()=>{
-            this.escenaRelacionada.scene.start('start');
+            this.escenaRelacionada.scene.start('level1');
             this.vida = 3;
         });
     }
