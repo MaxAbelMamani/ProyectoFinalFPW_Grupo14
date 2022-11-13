@@ -22,7 +22,7 @@ export default function GamePhaser() {
                 }
             }
 
-            const escenas = [Start ,Level1, Level2, Level3,GameOver, Win];
+            const escenas = [Start,Level1, Level2,Level3,GameOver,Win];
             const crearEscena = Scene =>new Scene(configuracion);
             const iniciarEscena = () => escenas.map(crearEscena);
 
