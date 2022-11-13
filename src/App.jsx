@@ -12,6 +12,12 @@ import Arkanoid from "./Components/OtherGames/Arkanoid"
 import PreguntaYRespuesta from "./Components/GamePreguntaYRespuesta/PreguntaYRespuesta"
 import GamePhaser from "./Components/GamePhaser/GamePhaser"
 
+import Quiz1 from "./Components/GamePreguntaYRespuesta/ComponentsPR/Quiz1"
+import Quiz2 from "./Components/GamePreguntaYRespuesta/ComponentsPR/Quiz2"
+import Quiz3 from "./Components/GamePreguntaYRespuesta/ComponentsPR/Quiz3"
+import Quiz4 from "./Components/GamePreguntaYRespuesta/ComponentsPR/Quiz4"
+
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -24,6 +30,10 @@ export default function App() {
         <Route path="/Arkanoid" element={ <Arkanoid/>} />
         <Route path="/PreguntaYRespuesta" element={ <PreguntaYRespuesta/>} />
         <Route path="/GamePhaser" element={ <GamePhaser/>} />
+        <Route path="/Quiz1" element={<Quiz1/>}/>
+        <Route path="/Quiz2" element={<Quiz2/>}/>
+        <Route path="/Quiz3" element={<Quiz3/>}/>
+        <Route path="/Quiz4" element={<Quiz4/>}/>
       </Routes>
     </BrowserRouter>
   );

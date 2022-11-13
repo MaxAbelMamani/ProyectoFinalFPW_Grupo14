@@ -1,0 +1,128 @@
+    [
+        {
+            "titulo": "JavaScript es...",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Un navegador web", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "Un lenguaje de programacion muy popular", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "Un sistema operativo", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Una aplicacion web", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Que comando se utiliza para registrar o escribir mensajes en la consola?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "write()", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "console.log()", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "console()", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "print()", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cuánto es `11`+ 1 en JavaScript?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "111", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "12", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "Syntax Error", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "`11`1", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿En qué año fue creado JavaScript?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "1997", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "2001", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "1987", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "1995", 
+                    "isCorrect": true 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Que es DOM?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Document Object Model", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "Definitive Object Model", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "Document Orientation Model", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Document Original Model", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cual es el resultado de la expresion var1&&var2, si var1=verdadero y var2=falso?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "true", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "false", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "undefined", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Syntax Error", 
+                    "isCorrect": false 
+                }
+            ]
+        }
+    ]

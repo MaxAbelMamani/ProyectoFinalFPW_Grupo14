@@ -5,12 +5,14 @@ class marcadorGame{
     }
 
     create(){
-        this.puntajeTexto = this.escenaRelacionada.add.text(270, 5, 'Puntaje:0', { fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        this.puntajeTextoS = this.escenaRelacionada.add.text(242, 7, 'Puntaje: 0', { fontFamily: 'fuenteLetra', fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        this.puntajeTexto = this.escenaRelacionada.add.text(240, 5, 'Puntaje: 0', { fontFamily: 'fuenteLetra', fontSize: '20px'}).setDepth(0.1);
     }
 
     incremenarPuntaje(puntos){
         this.puntaje += puntos;
-        this.puntajeTexto.setText('Puntaje:' + this.puntaje);
+        this.puntajeTextoS.setText('Puntaje: ' + this.puntaje);
+        this.puntajeTexto.setText('Puntaje: ' + this.puntaje);
     }
 }
 

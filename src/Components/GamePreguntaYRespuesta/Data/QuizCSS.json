@@ -1,0 +1,128 @@
+    [
+        {
+            "titulo": "¿Qué significa CSS?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Cascading Style Sheets (Hojas de Estilo en Cascada)", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "Color Style Sheets (Hojas de Estilo de Color)", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "Coded Style Sheets (Hojas de Estilo Codificadas)", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Code of Style Sheets (Código de Hojas de Estilo)", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Cómo podemos añadir un comentario en una hoja de estilo CSS?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Entre las etiquetas <!-- y -->", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "Entre los caracteres /* y */ ", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "No se puede", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Después de los caracteres //", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Para que se uilizan las hojas de estilo?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "Para definir la estructura de documentos web", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "Para automatizar paginas web", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "Para almacenar las palabras claves de paginas web", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "Para controlar la apariencia de documentos web", 
+                    "isCorrect": true 
+                }
+            ]
+        },
+        {
+            "titulo": "Seleccina el atributo que organiza el estilo en linea",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "style", 
+                    "isCorrect": true 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "id", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "class", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "href", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Donde de ser declarada la etiqueta style para organizar un CSS interno?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "body", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "head", 
+                    "isCorrect": true 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "archivo externo", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "archivo script", 
+                    "isCorrect": false 
+                }
+            ]
+        },
+        {
+            "titulo": "¿Que estiqueta se utiliza para llamar a una hoja de estilo externa?",
+            "opciones": [
+                {   "id": 0,
+                    "textoRespuesta": "meta", 
+                    "isCorrect": false 
+                },
+                {   "id": 1,
+                    "textoRespuesta": "script", 
+                    "isCorrect": false 
+                },
+                {   "id": 2,
+                    "textoRespuesta": "title", 
+                    "isCorrect": false 
+                },
+                {   "id": 3,
+                    "textoRespuesta": "link", 
+                    "isCorrect": true 
+                }
+            ]
+        }
+    ]
