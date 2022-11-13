@@ -1,4 +1,3 @@
-/*Zona de Importacion */
 import vidasGame from './VidasGame.jsx';
 import Phaser from 'phaser';
 import Escena2 from '../PhaserImg/Escenario2.png';
@@ -18,8 +17,8 @@ class Level2 extends Phaser.Scene {
     }
 
     init(){
-        this.marcador = new marcadorGame(this);
-        this.manzanas = new Manzana(this);
+        this.marcador = new marcadorGame(this, 400);
+        this.manzanas = new Manzana(this, 5000, 3000, 12000, 1.2, 1.5, 2);
         this.monaChina = new Personaje(this);
         this.vida = new vidasGame(this);
     }
@@ -56,10 +55,7 @@ class Level2 extends Phaser.Scene {
             })
         }
 
-
-
         this.add.image(200, 300, 'BackGround02');
-
 
         this.suelo = this.physics.add.staticGroup();
 
@@ -68,14 +64,12 @@ class Level2 extends Phaser.Scene {
 
 
         this.suelo.create(200, 600, 'plataforma02').refreshBody();
-
-
+        
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
         this.physics.add.collider(this.monaChina.monaChina, this.platform);
 
-        
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //gestion de la colision entre la el personaje principal y las manzanas rojas
@@ -93,11 +87,11 @@ class Level2 extends Phaser.Scene {
         this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas);
         this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes);
 
-        if(this.vida.vidas == 0){
+        if(this.vida.vidas <= 0){
             this.mostrarGameOver();
             this.sonidoFondo.stop();
         }
-        if(this.marcador.puntaje == 40){
+        if(this.marcador.puntaje >= 400){
             this.mostrarNivel2();
             this.sonidoFondo.stop();
         }
@@ -138,7 +132,6 @@ class Level2 extends Phaser.Scene {
             manzanaVerde.setVisible(false);
             this.greenAppleSound.play();
             this.vida.aumentarVida(1);
-
         }
     }
     mostrarGameOver(){
