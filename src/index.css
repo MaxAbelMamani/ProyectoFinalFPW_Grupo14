@@ -82,3 +82,12 @@ body{
     background: rgba(255, 255, 255, 0.075);
     transform: skew(25deg);
 }
+
+/*Fuente para el juego de Phaser*/
+@font-face {
+    font-family: 'fuenteLetra';
+    src: url('./Components/GamePhaser/8bitoperator.ttf');
+}
+.fuente{ /*deja cargando la fuente desde el index*/
+    font-family: 'fuenteLetra';
+}
