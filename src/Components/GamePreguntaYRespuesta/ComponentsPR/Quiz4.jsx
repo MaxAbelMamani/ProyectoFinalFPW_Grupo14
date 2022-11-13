@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
+import { sonidoEleccionCorrecta, sonidoEleccionIncorrecta, restartBtn } from '../PregRespSounds/soundEffects';
+
 import Quiz from '../Data/QuizDeLaMateria.json'
 import '../PregRespStyles/Quiz.css'
 
@@ -28,7 +30,10 @@ export default function Quiz4() {
 
     function seleccionarOpcion(isCorrect, e){
         if (isCorrect) {
-        setPuntaje(puntaje + 1);
+            setPuntaje(puntaje + 1);
+            sonidoEleccionCorrecta.play();
+        }else{
+            sonidoEleccionIncorrecta.play();
         }
 
         e.target.classList.add(isCorrect? "correct" : "incorrect");
@@ -46,6 +51,7 @@ export default function Quiz4() {
     };
 
     function reiniciarJuego(){
+        restartBtn.play();
         setPuntaje(0);
         setPreguntaActual(0);
         setTiempoRestante(30);
@@ -56,7 +62,7 @@ export default function Quiz4() {
     return (
         <div className='container__game'>
         <header className='header'>
-            <h1 className='title-header'>Quiz de </h1>
+            <h1 className='title-header'>Quiz de la Materia</h1>
         </header>
         <div className="game">
             <div className='game__puntaje'>
