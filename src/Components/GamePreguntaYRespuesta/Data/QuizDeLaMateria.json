@@ -1,84 +1,173 @@
 [
   {
-    "titulo": "¿Cuál es el mejor lenguaje de programación?",
+    "titulo": "¿Cuál de los siguientes protocolos de la familia TCP/IP es usado en la capa de  Aplicacion de Modelo OSI?",
     "opciones": [
       { "id": 0,
-        "textoRespuesta": "JavaScript", 
+        "textoRespuesta": "HTTP", 
         "isCorrect": true 
       },
       { "id": 1,
-        "textoRespuesta": "PHP", 
+        "textoRespuesta": "DOM", 
         "isCorrect": false 
       },
       { "id": 2,
-        "textoRespuesta": "C++", 
+        "textoRespuesta": "TCP", 
         "isCorrect": false 
       },
       { "id": 3,
-        "textoRespuesta": "Kotlin", 
+        "textoRespuesta": "UDP", 
         "isCorrect": false 
       }
     ]
   },
   {
-    "titulo": "Con las Clases virtuales aprendes...?",
+    "titulo": "Uno de los siguentes es un selector, en CSS, de tipo clase",
     "opciones": [
       { "id": 0,
-        "textoRespuesta": "no entiendo ", 
+        "textoRespuesta": "div", 
         "isCorrect": false 
       },
       { "id": 1,
-        "textoRespuesta": "si entiendo ", 
-        "isCorrect": true 
-      },
-      { "id": 2,
-        "textoRespuesta": "sin gracia :v", 
+        "textoRespuesta": "$div", 
         "isCorrect": false 
       },
+      { "id": 2,
+        "textoRespuesta": ".divContainer", 
+        "isCorrect": true 
+      },
       { "id": 3,
-        "textoRespuesta": "sin código", 
+        "textoRespuesta": "#divContainer", 
         "isCorrect": false 
       }
     ]
   },
   {
-    "titulo": "¿Cuánto es `11`+ 1 en JavaScript?",
+    "titulo": "Hablando de la diferencia entre var, let y const(selecionaa la correcta)",
     "opciones": [
       { "id": 0,
-        "textoRespuesta": "111", 
+        "textoRespuesta": "una variable declarada como let puede ser definida sin inicializar", 
         "isCorrect": true 
       },
       { "id": 1,
-        "textoRespuesta": "12", 
+        "textoRespuesta": "una variable declarada como let no puede ser definida sin inicializar", 
         "isCorrect": false 
       },
       { "id": 2,
-        "textoRespuesta": "Syntax Error", 
+        "textoRespuesta": "una variable declarada como const puede ser definida sin inicializar", 
         "isCorrect": false 
       },
       { "id": 3,
-        "textoRespuesta": "`11`1", 
+        "textoRespuesta": "tanto car, let y const deben inicializarse en el momento de su declaracion", 
         "isCorrect": false 
       }
     ]
   },
   {
-    "titulo": "¿En qué año fue creado JavaScript?",
+    "titulo": "Hablando de la diferencia entre var, let y const(selecionaa la correcta)",
     "opciones": [
       { "id": 0,
-        "textoRespuesta": "1997", 
+        "textoRespuesta": "un variable declarada como const tiene un ambito de en linea", 
         "isCorrect": false 
       },
       { "id": 1,
-        "textoRespuesta": "2001", 
+        "textoRespuesta": "una variable declarada como var tiene un ambito de bloque", 
         "isCorrect": false 
       },
       { "id": 2,
-        "textoRespuesta": "1987", 
+        "textoRespuesta": "tanto var,let y const tiene ambito de bloque", 
         "isCorrect": false 
       },
       { "id": 3,
-        "textoRespuesta": "1995", 
+        "textoRespuesta": "una variable declarada como let tiene ambito de bloque", 
+        "isCorrect": true 
+      }
+    ]
+  },
+  {
+    "titulo": "¿Cual de los siguientes elementos HTML es un elemento en bloque?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "<a>", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "<input>", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "<article>", 
+        "isCorrect": true 
+      },
+      { "id": 3,
+        "textoRespuesta": "<aside>", 
+        "isCorrect": false 
+      }
+    ]
+  },
+  {
+    "titulo": "El comando 'git commit' es para:",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "Para confirmar cambios", 
+        "isCorrect": true 
+      },
+      { "id": 1,
+        "textoRespuesta": "Para todos los nuevos archivos nuevos que desean ser rastreados por GIT", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "Para visulizar el historico de las confirmaciones", 
+        "isCorrect": false 
+      }
+    ]
+  },
+  {
+    "titulo": "El comando 'git init' es para:",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "Para visulizar el historico de las confirmaciones", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "Para todos los nuevos archivos nuevos que desean ser rastreados por GIT", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "Para inicializar un repositorio desde un directorio existente", 
+        "isCorrect": true 
+      }
+    ]
+  },
+  {
+    "titulo": "¿Cual de los siguientes en un elemento JSX?",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "const a = <div>", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "const a = {elemento: '<div>'}", 
+        "isCorrect": false 
+      },
+      { "id": 2,
+        "textoRespuesta": "const a = <div></div>", 
+        "isCorrect": true 
+      },
+      { "id": 3,
+        "textoRespuesta": "const a = '<div>'", 
+        "isCorrect": true 
+      }
+    ]
+  },
+  {
+    "titulo": "Un componente en ReactJS representa un pieza de una pagina Web",
+    "opciones": [
+      { "id": 0,
+        "textoRespuesta": "Falso", 
+        "isCorrect": false 
+      },
+      { "id": 1,
+        "textoRespuesta": "Verdadero", 
         "isCorrect": true 
       }
     ]

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './PreguntaYRespuesta.css'
+import './PregRespStyles/PreguntaYRespuesta.css'
 
 export default function PreguntaYRespuesta() {
   return (

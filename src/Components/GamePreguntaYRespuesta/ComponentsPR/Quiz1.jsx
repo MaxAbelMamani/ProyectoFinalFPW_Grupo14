@@ -2,8 +2,10 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
+import { sonidoEleccionCorrecta, sonidoEleccionIncorrecta, sonidoDeFondo, restartBtn} from '../PregRespSounds/soundEffects';
+
 import Quiz from '../Data/QuizHTML.json'
-import './Quiz.css'
+import '../PregRespStyles/Quiz.css'
 
 export default function Quiz1() {
     const [tiempoRestante, setTiempoRestante] = useState(30);
@@ -82,11 +84,11 @@ export default function Quiz1() {
             <div className='resultado__final'>
                 <h2 className='titulo__resultado__final'>Resultado Final</h2>
                 <h2 className='texto__resultado__final'>
-                {puntaje} de {Quiz.length} correctas - (
-                {(puntaje / Quiz.length) * 100}% completado)
+                    {puntaje} de {Quiz.length} correctas - (
+                    {(puntaje / Quiz.length) * 100}% completado)
                 </h2>
                 <button className='boton-reiniciar' onClick={() => reiniciarJuego()}>Reiniciar</button>
-            </div>
+            </div>  
             ) : (
             /*Question Card  */
             <div className="carta__pregunta carta-html">

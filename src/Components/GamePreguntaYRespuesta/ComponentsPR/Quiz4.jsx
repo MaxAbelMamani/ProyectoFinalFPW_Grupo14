@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
 import Quiz from '../Data/QuizDeLaMateria.json'
-import './Quiz.css'
+import '../PregRespStyles/Quiz.css'
 
 export default function Quiz4() {
     const [tiempoRestante, setTiempoRestante] = useState(30);

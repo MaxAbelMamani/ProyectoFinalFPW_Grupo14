@@ -100,7 +100,7 @@
                     "isCorrect": false 
                 },
                 {   "id": 1,
-                    "textoRespuesta": "<meta charset=UTF-8", 
+                    "textoRespuesta": "<meta charset=UTF-8>", 
                     "isCorrect": true 
                 },
                 {   "id": 2,

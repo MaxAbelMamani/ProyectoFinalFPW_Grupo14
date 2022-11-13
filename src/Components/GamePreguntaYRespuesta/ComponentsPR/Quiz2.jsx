@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
 import Quiz from '../Data/QuizDeJavaScript.json'
-import './Quiz.css'
+import '../PregRespStyles/Quiz.css'
 
 
 export default function Quiz2() {
