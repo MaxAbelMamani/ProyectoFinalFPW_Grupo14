@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Ahorcado() {
   return (
     <div className='container__game'>
-        <h1 className='title'>Ahorcado</h1>
+        <header className='header'>
+          <h1 className='title__header'>Ahorcado</h1>
+        </header>
         <div className='game'>
           {/* <iframe src="#" frameBorder="0"></iframe> */}
         </div>
