@@ -14,16 +14,16 @@ class Win extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('winScene', WinScene);
-        this.load.audio('gameWinSound', GameWinSound);
+        this.load.image('winScene', WinScene);//Cramos la esena "Win"
+        this.load.audio('gameWinSound', GameWinSound);//cargamos el sonido "win"
         this.botonVolver.preload();
         
     }
 
     create(){
-        this.gameWinS = this.sound.add('gameWinSound');
+        this.gameWinS = this.sound.add('gameWinSound');//
         this.gameWinS.play();
-        this.add.image(200, 300, 'winScene');
+        this.add.image(200, 300, 'winScene');// cargamos la imagen "Win" del juego
         this.botonVolver.create();
     }
 }
