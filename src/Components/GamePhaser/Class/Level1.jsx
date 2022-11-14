@@ -1,9 +1,9 @@
 /*Zona de Importacion*/
 import vidasGame from './VidasGame.jsx';
-import BackgroundSound01 from '../PhaserSounds/MusicPhGame01.mp3'
-import RedAppleSound from '../PhaserSounds/redApple.wav'
-import GreenAppleSound from '../PhaserSounds/greenApple.wav'
-import EvilAppleSound from '../PhaserSounds/evilApple.wav'
+import SonidoDeFondo from '../PhaserSounds/MusicPhGame01.mp3'
+import ManzanaRojaSonido from '../PhaserSounds/redApple.wav'
+import ManzanaVerdeSonido from '../PhaserSounds/greenApple.wav'
+import ManzanaMoradaSonido from '../PhaserSounds/evilApple.wav'
 import Phaser from 'phaser';
 import Suelo01 from '../PhaserImg/platformLevel1.png';
 import FondoEscena1 from '../PhaserImg/Escenario1.png';
@@ -59,8 +59,8 @@ class Level1 extends Phaser.Scene {
         this.add.image(200, 300, 'Fondo01');
 
         this.platform = this.physics.add.staticGroup();
-        this.platform.create(400, 600, 'platform').refreshBody();
-        this.platform.create(200, 600, 'platform').refreshBody();
+        this.platform.create(400, 600, 'plataforma').refreshBody();
+        this.platform.create(200, 600, 'plataforma').refreshBody();
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
@@ -87,7 +87,7 @@ class Level1 extends Phaser.Scene {
             this.mostrarGameOver();
             this.sonidoFondo.stop();
         }
-        if(this.marcador.puntaje >= 200){
+        if(this.marcador.puntaje >= 20){
             this.mostrarNivel2();
             this.sonidoFondo.stop();
         }

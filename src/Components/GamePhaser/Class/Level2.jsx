@@ -18,7 +18,7 @@ class Level2 extends Phaser.Scene {
 
     init(){
         this.marcador = new marcadorGame(this, 400);
-        this.manzanas = new Manzana(this, 5000, 3000, 12000, 1.2, 1.5, 2);
+        this.manzanas = new Manzana(this, 5000, 3000, 12000, 3.5, 3.5, 4);
         this.monaChina = new Personaje(this);
         this.vida = new vidasGame(this);
     }
