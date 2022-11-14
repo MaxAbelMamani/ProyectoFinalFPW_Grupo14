@@ -18,7 +18,7 @@ class Level2 extends Phaser.Scene {
 
     init(){
         this.marcador = new marcadorGame(this, 400);
-        this.manzanas = new Manzana(this, 5000, 3000, 12000, 3.5, 3.5, 4);
+        this.manzanas = new Manzana(this, 5000, 3000, 12000, 5.5, 5.5, 8);
         this.monaChina = new Personaje(this);
         this.vida = new vidasGame(this);
     }
@@ -83,9 +83,9 @@ class Level2 extends Phaser.Scene {
     }
     update(){
         this.monaChina.mover(this.cursors);
-        this.destruirYResutilizarManzana(this.manzanas.manzanasRojas);
-        this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas);
-        this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasRojas,this.manzanas.velocidadCaida);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasMoradas,this.manzanas.velocidadCaidaManzanaMorada);
+        this.destruirYResutilizarManzana(this.manzanas.manzanasVerdes,this.manzanas.velocidadCaidaManzanaVerde);
 
         if(this.vida.vidas <= 0){
             this.mostrarGameOver();
@@ -97,8 +97,8 @@ class Level2 extends Phaser.Scene {
         }
         
     }
-    destruirYResutilizarManzana(manzanas) {
-        Phaser.Actions.IncY(manzanas.getChildren(), this.manzanas.velocidadCaida);
+    destruirYResutilizarManzana(manzanas,velocidad) {
+        Phaser.Actions.IncY(manzanas.getChildren(), velocidad);
         manzanas.children.iterate(function (manzana) {
             if (manzana.y > 600) {
                 manzanas.killAndHide(manzana);

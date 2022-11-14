@@ -5,8 +5,8 @@ class vidasGame{
     }
 
     create(){
-        this.vidaTextoS = this.escenaRelacionada.add.text(10, 5, this.vidas + '/3 Vidas', { fontFamily: 'fuenteLetra', fontSize: '20px', fill: '#000' }).setDepth(0.1);
-        this.vidaTexto = this.escenaRelacionada.add.text(12, 5, this.vidas + '/3 Vidas', { fontFamily: 'fuenteLetra', fontSize: '20px'}).setDepth(0.1);
+        this.vidaTextoS = this.escenaRelacionada.add.text(270, 7, this.vidas + '/3 Vidas', { fontFamily: 'fuenteLetra', fontSize: '20px', fill: '#000' }).setDepth(0.1);
+        this.vidaTexto = this.escenaRelacionada.add.text(272, 5, this.vidas + '/3 Vidas', { fontFamily: 'fuenteLetra', fontSize: '20px'}).setDepth(0.1);
     }
 
     decrementarVida(vidas){

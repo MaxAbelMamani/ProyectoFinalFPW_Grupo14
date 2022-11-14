@@ -7,7 +7,6 @@ import Team from "./Components/Team";
 //Importando paginas de otros de juegos
 import PPT from "./Components/OtherGames/PPT"
 import Ahorcado from "./Components/OtherGames/Ahorcado"
-import Arkanoid from "./Components/OtherGames/Arkanoid"
 //Importando paginas de juegos principales a presentar
 import PreguntaYRespuesta from "./Components/GamePreguntaYRespuesta/PreguntaYRespuesta"
 import GamePhaser from "./Components/GamePhaser/GamePhaser"
@@ -27,7 +26,6 @@ export default function App() {
         <Route path="/MenuGames" element={ <MenuGames/>} />
         <Route path="/PPT" element={ <PPT/>} />
         <Route path="/Ahorcado" element={ <Ahorcado/>} />
-        <Route path="/Arkanoid" element={ <Arkanoid/>} />
         <Route path="/PreguntaYRespuesta" element={ <PreguntaYRespuesta/>} />
         <Route path="/GamePhaser" element={ <GamePhaser/>} />
         <Route path="/Quiz1" element={<Quiz1/>}/>
