@@ -8,12 +8,12 @@ import Quiz from '../Data/QuizHTML.json'
 import '../PregRespStyles/Quiz.css'
 
 export default function Quiz1() {
-    const [tiempoRestante, setTiempoRestante] = useState(30);
-    const [desactivarPregunta, setDesactivarPregunta] = useState(false);
+    const [tiempoRestante, setTiempoRestante] = useState(30);//Cantidad de tiempo para que responda las preguntas
+    const [desactivarPregunta, setDesactivarPregunta] = useState(false);//Desactivas las opciones al terminar el tiempo
 
-    const [mostrarResultado, setMostrarResultado] = useState(false);
+    const [mostrarResultado, setMostrarResultado] = useState(false);//Motramos los resultamos Verdaderos 
     const [preguntaActual, setPreguntaActual] = useState(0);
-    const [puntaje, setPuntaje] = useState(0);
+    const [puntaje, setPuntaje] = useState(0);//Puntaje del jugador
 
     useEffect(() => {
         const intervalo = setInterval(() => {
@@ -30,10 +30,10 @@ export default function Quiz1() {
 
     function seleccionarOpcion(isCorrect, e){
         if (isCorrect) {
-            setPuntaje(puntaje + 1);
-            sonidoEleccionCorrecta.play();
+            setPuntaje(puntaje + 1);//Sumamos 1 punto si la pregunta es uncorrecta
+            sonidoEleccionCorrecta.play();//Sonido de Respuesta correcta
         }else{
-            sonidoEleccionIncorrecta.play();
+            sonidoEleccionIncorrecta.play();//Sonido de Respuesta incorrecta
         }
 
         e.target.classList.add(isCorrect? "correct" : "incorrect");
@@ -50,6 +50,7 @@ export default function Quiz1() {
         },400);
     };
 
+    //Reiniciamos el juego 
     function reiniciarJuego(){
         restartBtn.play();
         setPuntaje(0);
@@ -82,9 +83,9 @@ export default function Quiz1() {
                 )}
                 </div>
             </div>
-            {/*Show results or show the question game  */}
+            {/*Mostrar resultados*/}
             {mostrarResultado ? (
-            /*Final Results */
+            /*Resultado final */
             <div className='resultado__final'>
                 <h2 className='titulo__resultado__final'>Resultado Final</h2>
                 <h2 className='texto__resultado__final'>
@@ -94,15 +95,15 @@ export default function Quiz1() {
                 <button className='boton-reiniciar' onClick={() => reiniciarJuego()}>Reiniciar</button>
             </div>  
             ) : (
-            /*Question Card  */
+            /*Targeta de Preguntas  */
             <div className="carta__pregunta carta-html">
-                {/* Current Question  */}
+                {/* Pregunta actual  */}
                 <h2 className='texto__numero__pregunta'>
                 Pregunta Nº {preguntaActual + 1} de {Quiz.length}
                 </h2>
                 <h3 className="texto__pregunta">{Quiz[preguntaActual].titulo}</h3>
 
-                {/* List of possible answers  */}
+                {/* Lista de posibles respuestas */}
                 <div className='opciones__pregunta'>
                 {Quiz[preguntaActual].opciones.map((opcion) =>(
                     <button

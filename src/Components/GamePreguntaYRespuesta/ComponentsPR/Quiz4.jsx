@@ -82,9 +82,9 @@ export default function Quiz4() {
                 )}
                 </div>
             </div>
-            {/*Show results or show the question game  */}
+            {/*Mostrar resultados */}
             {mostrarResultado ? (
-            /*Final Results */
+            /*Resulado Final */
             <div className='resultado__final'>
                 <h2 className='titulo__resultado__final'>Resultado Final</h2>
                 <h2 className='texto__resultado__final'>
@@ -94,15 +94,15 @@ export default function Quiz4() {
                 <button className='boton-reiniciar' onClick={() => reiniciarJuego()}>Reiniciar</button>
             </div>
             ) : (
-            /*Question Card  */
+            /*Targeta de Preguntas*/
             <div className="carta__pregunta">
-                {/* Current Question  */}
+                {/* Pregunta Actual */}
                 <h2 className='texto__numero__pregunta'>
                 Pregunta Nº {preguntaActual + 1} de {Quiz.length}
                 </h2>
                 <h3 className="texto__pregunta">{Quiz[preguntaActual].titulo}</h3>
 
-                {/* List of possible answers  */}
+                {/* Lista de posibles respuestas */}
                 <div className='opciones__pregunta'>
                 {Quiz[preguntaActual].opciones.map((opcion) =>(
                     <button
