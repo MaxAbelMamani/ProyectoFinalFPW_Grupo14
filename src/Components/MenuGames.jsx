@@ -23,12 +23,6 @@ export default function MenuGames() {
                     alt="example"
                 />
                 </Link>
-                <Link to={"/Arkanoid"}>
-                <img
-                    src="src/assets/img/Arkanoid.png"
-                    alt="example"
-                />
-                </Link>
                 <Link to={"/GamePhaser"}>
                 <img
                     src="src/assets/img/applecatcher.png"
