@@ -8,16 +8,20 @@ import manzanaRoja from "../PhaserImg/ManzanaRoja.png";
 
 export default class Manzana {
     constructor(escena, timeAppleR, timeAppleM, timeAppleV, speedAppleR, speedAppleM, speedAppleV){
+        //variable para determinar la escena realaionada
         this.escenaRelacionada = escena;
 
+        //variables para determinar el tiempo de aparicion las distintas manzanas
         this.tiempoAparicion = timeAppleR;
         this.tiempoAparicionManzanaMorada = timeAppleM;
         this.tiempoAparicionManzanaVerde = timeAppleV;
 
+        //variables para determinar la velocidad de caida las distintas manzanas
         this.velocidadCaida = speedAppleR;
         this.velocidadCaidaManzanaMorada = speedAppleM;
         this.velocidadCaidaManzanaVerde = speedAppleV;
 
+        //variables para identificar los distitos grupos de manzanas
         this.manzanasRojas;
         this.manzanasMoradas;
         this.manzanasVerdes;
@@ -30,35 +34,35 @@ export default class Manzana {
     }
 
     crearManzanas(){
-        //manzanas Rojas
+        //grupo de manzanass Rojas
         this.manzanasRojas = this.escenaRelacionada.physics.add.group({
-            defaultKey: 'manzanaRoja',
-            frame:0,
-            maxSize: 50
+            defaultKey: 'manzanaRoja', //key de la imagen
+            maxSize: 50 //cantidad de manzanas que podran estar cargadas al mismo tiempo
         });
 
-        //manzana Moradas
+        //grupo de manzanas Moradas
         this.manzanasMoradas = this.escenaRelacionada.physics.add.group({
             defaultKey: 'manzanaMorada',
-            frame:0,
             maxSize: 50
         });
 
-        //manzana Verder
+        //grupo de manzanas Verder
         this.manzanasVerdes = this.escenaRelacionada.physics.add.group({
             defaultKey: 'manzanaVerde',
-            frame:0,
             maxSize: 50
         });
 
+        //evento de tiempo de las manzanas Rojas
         this.escenaRelacionada.time.addEvent({
-            delay: this.tiempoAparicion,
-            loop: true,
-            callback: ()=>{
+            delay: this.tiempoAparicion, //esta propiedad determina el tiempo de aparacicion de las manzanas
+            loop: true, //esta propiedad es para que el evento se repia una y otra vez
+            callback: ()=>{ //esta propiedad determina el evento que lanzara
+                //llama al metodo generar manzanas Rojas
                 this.generarManazasRojas(this.manzanasRojas);
             }
         });
 
+        //evento de tiempo de las manzanas Moradas
         this.escenaRelacionada.time.addEvent({
             delay: this.tiempoAparicionManzanaMorada,
             loop: true,
@@ -67,6 +71,7 @@ export default class Manzana {
             }
         });
 
+        //evento de tiempo de las manzanas Verdes
         this.escenaRelacionada.time.addEvent({
             delay: this.tiempoAparicionManzanaVerde,
             loop: true,
@@ -78,16 +83,20 @@ export default class Manzana {
 
     generarManazasRojas(manzanas){
         this.numeroManzanasRojas = Phaser.Math.Between(1,3);
-        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
+        //bucle que se repetira segun el numero de manzanas
+        for (let index = 0; index < this.numeroManzanasRojas; index++) {
+            //le pedimos una manzana al grupo
             let manzana = manzanas.get();
-
+            //si hay una manzana disponible
             if (manzana) {
-                manzana.setActive(true).setVisible(true);
-                //posicion de las manzanas
-                manzana.y = 190;
-                manzana.x = Phaser.Math.Between(10, 390);
+                manzana.setActive(true).setVisible(true);//lo activamos y lo hacemos visible
+                manzana.y = 190;//posicion de las manzanas en y
+                manzana.x = Phaser.Math.Between(10, 390); //posicion de las manzanas en x aleatorio
+                //lo siguiente detecta si hay una superposicion de una manzana sobre otra manzana del grupo de manzanas
+                //nos debolvera la manazana en colision en un callback
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
-                    manzanaEnColision.x = Phaser.Math.Between(0, 400);
+                    //cambia la posicion de la manzana que se sobrepone a una posicicion distinta en el eje x
+                    manzanaEnColision.x = Phaser.Math.Between(10, 390);
                 });
             }
         }
@@ -95,12 +104,11 @@ export default class Manzana {
 
     generarManazasMoradas(manzanas){
         this.numeroManzanasMoradas = Phaser.Math.Between(1,3);
-        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
+        for (let index = 0; index < this.numeroManzanasRojas; index++) {
             let manzana = manzanas.get();
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
-                //posicion de las manzanas
                 manzana.y = 290;
                 manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
@@ -112,12 +120,11 @@ export default class Manzana {
 
     generarManazasVerdes(manzanas){
         this.numeroManzanasVerdes = Phaser.Math.Between(0,1);
-        for (let index = 0; index <= this.numeroManzanasRojas; index++) {
+        for (let index = 0; index < this.numeroManzanasRojas; index++) {
             let manzana = manzanas.get();
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
-                //posicion de las manzanas
                 manzana.y = 240;
                 manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
