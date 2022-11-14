@@ -64,6 +64,7 @@ class Level1 extends Phaser.Scene {
         this.manzanas.crearManzanas();
         this.monaChina.create();
 
+        //gestion de la colision entre la el personaje principal y el suelo
         this.physics.add.collider(this.monaChina.monaChina, this.suelo);
         this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -94,20 +95,32 @@ class Level1 extends Phaser.Scene {
     }
 
     destruirYResutilizarManzana(manzanas,velocidad) {
+        //lo que hacemos aqui es pasarle a al metodo IncY, un objeto en este caso como primer argumento
+        //todos los hijos del grupo de manzanas y como segundo argumento la velocidad con la cual queremos que caigan
+        //esto incrementara en la pocision en Y de todas las manzanas
         Phaser.Actions.IncY(manzanas.getChildren(), velocidad);
+        //iteramos todos lo hijos dentro del grupo de manzanas
         manzanas.children.iterate(function (manzana) {
+            //si esa manzana supera el alto del juego(height:600)
             if (manzana.y > 600) {
+                //sera elimilado y volvera a estar disponible en el grupo de manzanas
                 manzanas.killAndHide(manzana);
             }
         });
     }
 
     colisionPlayerManzanaR(monaChina, manzanaRoja) {
+        //prguntamos si la manzana esta activa
         if (manzanaRoja.active) {
+            //la manzana sera elimilada y volvera a estar disponible en el grupo de manzanas
             this.manzanas.manzanasRojas.killAndHide(manzanaRoja);
+            //cambiamo el estado activo de la manzana a false
             manzanaRoja.setActive(false);
+            //cambiamo el estado visible de la manzana a false
             manzanaRoja.setVisible(false);
+            //llamamos al metodo de incrementar puntaje de la clase marcadorGame
             this.marcador.incremenarPuntaje(10);
+            //sonido cuando se realiza la colision con la manzana
             this.redAppleSound.play();
         }
     }

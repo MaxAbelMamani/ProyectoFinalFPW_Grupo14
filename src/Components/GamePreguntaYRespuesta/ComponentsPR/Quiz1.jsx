@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-
+//importando efectos de sonido
 import { sonidoEleccionCorrecta, sonidoEleccionIncorrecta, restartBtn } from '../PregRespSounds/soundEffects';
-
+//importando json de la preguntas 
 import Quiz from '../Data/QuizHTML.json'
+//importando estilo del quiz
 import '../PregRespStyles/Quiz.css'
 
 export default function Quiz1() {
@@ -17,12 +18,12 @@ export default function Quiz1() {
 
     useEffect(() => {
         const intervalo = setInterval(() => {
-        if (tiempoRestante > 0) {
-            setTiempoRestante((prev) => prev - 1);
-        }
-        if (tiempoRestante === 0) {
-            setDesactivarPregunta(true);
-        }
+            if (tiempoRestante > 0) {
+                setTiempoRestante((prev) => prev - 1);
+            }
+            if (tiempoRestante === 0) {
+                setDesactivarPregunta(true);
+            }
         }, 1000);
 
         return () => clearInterval(intervalo);
@@ -30,33 +31,34 @@ export default function Quiz1() {
 
     function seleccionarOpcion(isCorrect, e){
         if (isCorrect) {
-            setPuntaje(puntaje + 1);
-            sonidoEleccionCorrecta.play();
+            setPuntaje(puntaje + 1);//suma el puntaje mas uno
+            sonidoEleccionCorrecta.play();//efecto de sonido si la opcion es correcta
         }else{
-            sonidoEleccionIncorrecta.play();
+            sonidoEleccionIncorrecta.play();//efecto de sonido si la opcion es incorrecta
         }
-
+        //cambia el color del background de la opcion añadiendo una clase
+        //si la opcion es correcta sera verde, si es incorrecta sera rojo
         e.target.classList.add(isCorrect? "correct" : "incorrect");
 
         setTimeout(()=>{
-        if (preguntaActual + 1 < Quiz.length) {
-            setPreguntaActual(preguntaActual + 1);
-            setTiempoRestante(30);
-            e.target.classList.remove(isCorrect? "correct" : "incorrect");
-        } else {
-            setMostrarResultado(true);
-            document.querySelector('.texto__tiempo').style.display = 'none';
-        }
+            if (preguntaActual + 1 < Quiz.length) {
+                setPreguntaActual(preguntaActual + 1);
+                setTiempoRestante(30);
+                e.target.classList.remove(isCorrect? "correct" : "incorrect");
+            } else {
+                setMostrarResultado(true);
+                document.querySelector('.texto__tiempo').style.display = 'none';
+            }
         },400);
     };
 
     function reiniciarJuego(){
-        restartBtn.play();
-        setPuntaje(0);
-        setPreguntaActual(0);
-        setTiempoRestante(30);
-        document.querySelector('.texto__tiempo').style.display = 'block';
-        setMostrarResultado(false);
+        restartBtn.play();//sonido de reiniciar el juego
+        setPuntaje(0); //reinicia el puntaje
+        setPreguntaActual(0); //vuelve a la primera pregunta
+        setTiempoRestante(30); //reiniciar el temporizador
+        document.querySelector('.texto__tiempo').style.display = 'block'; //visualiza nuevante el temporizador
+        setMostrarResultado(false); //oculta el resultado final
     };
 
     return (
@@ -67,24 +69,27 @@ export default function Quiz1() {
         <div className="game">
             <div className='game__puntaje'>
                 <h2 className='texto__puntaje'>Puntaje: {puntaje}</h2>
-                <div className='texto__tiempo'>{!desactivarPregunta ? (
-                    <h2>Tiempo Restante: {tiempoRestante}</h2>
-                ) : (
-                    <button
-                    className='boton__continuar'
-                    onClick={()=>{
-                    setTiempoRestante(30);
-                    setDesactivarPregunta(false);
-                    setPreguntaActual(preguntaActual + 1);
-                    }}>
-                    Continuar {'->'}
-                    </button>
-                )}
+                <div className='texto__tiempo'>
+                    {!desactivarPregunta ? (
+                        //si desactivarPregunta es falso me muestra el tiempo restante
+                        <h2>Tiempo Restante: {tiempoRestante}</h2>
+                    ) : (
+                        //si desactivarPregunta es true me muestra un boton para continuar
+                        <button
+                        className='boton__continuar'
+                        onClick={()=>{
+                            setTiempoRestante(30); //reinicia el temporizador
+                            setDesactivarPregunta(false); //activa nuevamente las respuestas
+                            setPreguntaActual(preguntaActual + 1); //pasa a la siguiente pregunta
+                        }}>
+                        Continuar {'->'}
+                        </button>
+                    )}
                 </div>
             </div>
-            {/*Show results or show the question game  */}
+            {/*Mostrar el resutlado final o las preguntas del juego*/}
             {mostrarResultado ? (
-            /*Final Results */
+            /*Si mostrar resultado es true muestra el Resutlado Final */
             <div className='resultado__final'>
                 <h2 className='titulo__resultado__final'>Resultado Final</h2>
                 <h2 className='texto__resultado__final'>
@@ -94,16 +99,17 @@ export default function Quiz1() {
                 <button className='boton-reiniciar' onClick={() => reiniciarJuego()}>Reiniciar</button>
             </div>  
             ) : (
-            /*Question Card  */
+            /*Si mostrar resultado es true muestra la carta de pregunta con las opciones*/
             <div className="carta__pregunta carta-html">
-                {/* Current Question  */}
+                {/* Pregunta actual*/}
                 <h2 className='texto__numero__pregunta'>
                 Pregunta Nº {preguntaActual + 1} de {Quiz.length}
                 </h2>
                 <h3 className="texto__pregunta">{Quiz[preguntaActual].titulo}</h3>
 
-                {/* List of possible answers  */}
+                {/* Las posibles respuestas */}
                 <div className='opciones__pregunta'>
+                {/*Map de las opciones de la pregunta acutal*/}
                 {Quiz[preguntaActual].opciones.map((opcion) =>(
                     <button
                         className="boton-opcion"
