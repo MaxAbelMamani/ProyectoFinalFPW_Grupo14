@@ -30,19 +30,21 @@ export default class Manzana {
     }
 
     crearManzanas(){
-        //manzanas
+        //manzanas Rojas
         this.manzanasRojas = this.escenaRelacionada.physics.add.group({
             defaultKey: 'manzanaRoja',
             frame:0,
             maxSize: 50
         });
 
+        //manzana Moradas
         this.manzanasMoradas = this.escenaRelacionada.physics.add.group({
             defaultKey: 'manzanaMorada',
             frame:0,
             maxSize: 50
         });
 
+        //manzana Verder
         this.manzanasVerdes = this.escenaRelacionada.physics.add.group({
             defaultKey: 'manzanaVerde',
             frame:0,
@@ -81,7 +83,7 @@ export default class Manzana {
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
-                //posicin de las manzanas
+                //posicion de las manzanas
                 manzana.y = 190;
                 manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
@@ -98,7 +100,7 @@ export default class Manzana {
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
-                //posicin de las manzanas
+                //posicion de las manzanas
                 manzana.y = 290;
                 manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
@@ -115,7 +117,7 @@ export default class Manzana {
 
             if (manzana) {
                 manzana.setActive(true).setVisible(true);
-                //posicin de las manzanas
+                //posicion de las manzanas
                 manzana.y = 240;
                 manzana.x = Phaser.Math.Between(10, 390);
                 this.escenaRelacionada.physics.add.overlap(manzana, manzanas, (manzanaEnColision)=>{
